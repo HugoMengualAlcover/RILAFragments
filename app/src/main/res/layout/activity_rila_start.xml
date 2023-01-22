@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF6EA"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgRilaMain"
+            android:layout_width="wrap_content"
+            android:layout_height="205dp"
+            android:layout_marginTop="110dp"
+            app:srcCompat="@drawable/capturadepantalla2022_10_07alas12_58_07"
+            tools:srcCompat="@drawable/capturadepantalla2022_10_07alas12_58_07" />
+
+        <Button
+            android:id="@+id/btnSignUpMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:text="Sign Up "
+            android:textColor="#000000"
+            app:cornerRadius="30dp" />
+
+        <Button
+            android:id="@+id/btnLoginInMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:text="Log in"
+            android:textColor="#000000"
+            app:cornerRadius="30dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnGoogleMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#00FFFFFF"
+                app:srcCompat="@drawable/icons8_logo_de_google_30" />
+
+            <ImageButton
+                android:id="@+id/btnAppleMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#00FFFFFF"
+                app:srcCompat="@drawable/icons8_mac_os_30" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblEntrarSinCuentaMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="Entrar sin cuenta" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

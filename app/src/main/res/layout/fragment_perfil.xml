@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.perfil.PerfilFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgViewUsuarioPerfilActivity"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:layout_marginTop="100dp"
+            app:srcCompat="@drawable/usuarioconelmas" />
+
+        <TextView
+            android:id="@+id/lblNombreVariablePerfilActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="#825D33"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/lblCorreoVariablePerfilActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/roboto_light"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="#825D33" />
+
+        <TextView
+            android:id="@+id/lblAcercaDeTiPerfilActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Acerca de ti"
+            android:textColor="#825D33" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lblNombrePerfilActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Nombre"
+                android:textColor="#825D33" />
+
+            <EditText
+                android:id="@+id/txtNombrePerfilActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="3"
+                android:background="@null"
+                android:ems="10"
+                android:fontFamily="@font/roboto_light"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textColor="#825D33"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lblCorreoPerfilActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Correo"
+                android:textColor="#825D33" />
+
+            <EditText
+                android:id="@+id/txtCorreoPerfilActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="3"
+                android:background="@null"
+                android:ems="10"
+                android:fontFamily="@font/roboto_light"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textColor="#825D33"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblSeguridadPerfilActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_light"
+            android:text="Seguridad"
+            android:textColor="#825D33" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lblPasswordPerfilActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Contraseña"
+                android:textColor="#825D33" />
+
+            <EditText
+                android:id="@+id/txtPasswordPerfilActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="3"
+                android:background="@null"
+                android:ems="10"
+                android:fontFamily="@font/roboto_light"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textColor="#825D33"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

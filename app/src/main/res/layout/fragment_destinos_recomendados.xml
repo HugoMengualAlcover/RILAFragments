@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.destinosRecomendados.DestinosRecomendadosFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lblTituloDestinosRecomendadosActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="60dp"
+            android:fontFamily="@font/roboto_thin"
+            android:gravity="center"
+            android:minLines="2"
+            android:text="DESTINOS \n RECOMENDADOS"
+            android:textColor="@color/PottersClay"
+            android:textSize="32dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/contenedorDestinosRecomendadosActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+</FrameLayout>
