@@ -9,7 +9,23 @@
         android:id="@+id/nav_home"
         android:name="com.example.rilafragments.ui.home.MapaFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_mapa" />
+        tools:layout="@layout/fragment_mapa" >
+        <action
+            android:id="@+id/action_nav_home_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_ayudaFragment"
+            app:destination="@id/ayudaFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_ciudadesYPueblosFragment"
+            app:destination="@id/ciudadesYPueblosFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_destinosRecomendadosFragment"
+            app:destination="@id/destinosRecomendadosFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_favoritosFragment"
+            app:destination="@id/favoritosFragment" />
+    </fragment>
     <fragment
         android:id="@+id/perfilFragment"
         android:name="com.example.rilafragments.ui.perfil.PerfilFragment"
@@ -24,7 +40,11 @@
         android:id="@+id/ciudadesYPueblosFragment"
         android:name="com.example.rilafragments.ui.ciudadesPueblos.CiudadesYPueblosFragment"
         android:label="fragment_ciudades_y_pueblos"
-        tools:layout="@layout/fragment_ciudades_y_pueblos" />
+        tools:layout="@layout/fragment_ciudades_y_pueblos" >
+        <action
+            android:id="@+id/action_ciudadesYPueblosFragment_to_destinoFragment"
+            app:destination="@id/destinoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/destinoFragment"
         android:name="com.example.rilafragments.ui.destino.DestinoFragment"

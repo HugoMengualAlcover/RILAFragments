@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -33,13 +34,17 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Google
         View root = binding.getRoot();
 
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getParentFragmentManager().findFragmentById(R.id.map);
 
-        mapFragment.getMapAsync(this);
+        if (mapFragment == null){
+            Toast.makeText(getParentFragment().getContext(), "Ha habido un problema al obtener el mapa", Toast.LENGTH_SHORT).show();
+        }else {
+            mapFragment.getMapAsync(this);
+        }
 
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText); //getText es una funcion del ViewModel, viene por defecto, cambiar cuando sepamos que hacer con él
+        /*final TextView textView = binding.textHome;
+        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);*/ //getText es una funcion del ViewModel, viene por defecto, cambiar cuando sepamos que hacer con él
         return root;
     }
 
