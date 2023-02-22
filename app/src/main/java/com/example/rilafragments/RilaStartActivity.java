@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 public class RilaStartActivity extends AppCompatActivity {
 
-
     Button btnSignUp;
     Button btnLogIn;
     ImageButton btnGoogle;
@@ -22,8 +21,9 @@ public class RilaStartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_rila_start);
 
+        btnSignUp = findViewById(R.id.btnSignUpMain);
         inicializarVistas();
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +64,7 @@ public class RilaStartActivity extends AppCompatActivity {
     }
 
     private void inicializarVistas() {
-        btnSignUp = findViewById(R.id.btnSignUpMain);
+
         btnLogIn = findViewById(R.id.btnLoginInMain);
         btnGoogle = findViewById(R.id.btnGoogleMain);
         btnApple = findViewById(R.id.btnAppleMain);
