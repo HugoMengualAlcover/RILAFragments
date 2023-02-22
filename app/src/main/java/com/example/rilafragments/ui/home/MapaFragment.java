@@ -27,8 +27,8 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Google
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MapaViewModel homeViewModel =
-                new ViewModelProvider(this).get(MapaViewModel.class);
+
+        MapaViewModel homeViewModel = new ViewModelProvider(this).get(MapaViewModel.class);
 
         binding = FragmentMapaBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

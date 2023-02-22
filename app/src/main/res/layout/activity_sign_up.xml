@@ -27,13 +27,16 @@
             android:textSize="48sp" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtNombreSignUpActivityBox"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Nombre"
             app:boxBackgroundMode="outline"
-            app:endIconMode="clear_text">
+            app:boxStrokeErrorColor="@color/design_default_color_error"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtNombreSignUpActivity"
@@ -42,13 +45,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtEmailSignUpActivityBox"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Dirección de e-mail"
             app:boxBackgroundMode="outline"
-            app:endIconMode="clear_text">
+            app:boxStrokeErrorColor="@color/design_default_color_error"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtEmailSignUpActivity"
@@ -58,14 +64,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtPasswordSignUpActivityBox"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Contraseña"
             app:boxBackgroundMode="outline"
+            app:boxStrokeErrorColor="@color/design_default_color_error"
             app:counterMaxLength="10"
-            app:endIconMode="password_toggle">
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtPasswordSignUpActivity"
@@ -75,14 +84,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtConfirmPasswordSignUpActivityBox"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Confirmar contraseña"
             app:boxBackgroundMode="outline"
+            app:boxStrokeErrorColor="@color/design_default_color_error"
             app:counterMaxLength="10"
-            app:endIconMode="password_toggle">
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtConfirmPasswordSignUpActivity"
@@ -96,7 +108,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="60dp"
             android:backgroundTint="@color/Bianca"
             android:paddingLeft="30dp"
             android:paddingTop="15dp"

@@ -80,4 +80,10 @@ public class LogInActivity extends AppCompatActivity {
             finish();
         }
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        upDateUI(authSystem.getCurrentUser());
+    }
 }

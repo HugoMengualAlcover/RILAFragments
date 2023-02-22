@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RILAFragments"
+        android:theme="@style/Theme.RILAFragments.NoActionBar"
         tools:targetApi="31">
 
         <!--
@@ -26,9 +26,10 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyBnEi7b1CEYeNlo7Eyt2TAGou0bjYYoDGA" />
 
         <activity
             android:name=".LogInActivity"
@@ -47,9 +48,7 @@
         <activity
             android:name=".RilaStartActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.RILAFragments.NoActionBar">
-
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
