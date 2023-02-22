@@ -37,6 +37,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Google
         SupportMapFragment mapFragment = (SupportMapFragment) getParentFragmentManager().findFragmentById(R.id.map);
 
         if (mapFragment == null){
+
             Toast.makeText(getParentFragment().getContext(), "Ha habido un problema al obtener el mapa", Toast.LENGTH_SHORT).show();
         }else {
             mapFragment.getMapAsync(this);
