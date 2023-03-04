@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_home">
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.rilafragments.ui.home.MapaFragment"
+        android:name="com.example.rilafragments.fragment.mapa.MapaFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_mapa" >
+        tools:layout="@layout/fragment_mapa">
         <action
             android:id="@+id/action_nav_home_to_perfilFragment"
             app:destination="@id/perfilFragment" />
@@ -28,36 +28,36 @@
     </fragment>
     <fragment
         android:id="@+id/perfilFragment"
-        android:name="com.example.rilafragments.ui.perfil.PerfilFragment"
+        android:name="com.example.rilafragments.fragment.perfil.PerfilFragment"
         android:label="fragment_perfil"
         tools:layout="@layout/fragment_perfil" />
     <fragment
         android:id="@+id/ayudaFragment"
-        android:name="com.example.rilafragments.ui.ayuda.AyudaFragment"
+        android:name="com.example.rilafragments.fragment.ayuda.AyudaFragment"
         android:label="fragment_ayuda"
         tools:layout="@layout/fragment_ayuda" />
     <fragment
         android:id="@+id/ciudadesYPueblosFragment"
-        android:name="com.example.rilafragments.ui.ciudadesPueblos.CiudadesYPueblosFragment"
+        android:name="com.example.rilafragments.fragment.ciudadesPueblos.CiudadesYPueblosFragment"
         android:label="fragment_ciudades_y_pueblos"
-        tools:layout="@layout/fragment_ciudades_y_pueblos" >
+        tools:layout="@layout/fragment_ciudades_y_pueblos">
         <action
             android:id="@+id/action_ciudadesYPueblosFragment_to_destinoFragment"
             app:destination="@id/destinoFragment" />
     </fragment>
     <fragment
         android:id="@+id/destinoFragment"
-        android:name="com.example.rilafragments.ui.destino.DestinoFragment"
+        android:name="com.example.rilafragments.fragment.destino.DestinoFragment"
         android:label="fragment_destino"
         tools:layout="@layout/fragment_destino" />
     <fragment
         android:id="@+id/destinosRecomendadosFragment"
-        android:name="com.example.rilafragments.ui.destinosRecomendados.DestinosRecomendadosFragment"
+        android:name="com.example.rilafragments.fragment.destinosRecomendados.DestinosRecomendadosFragment"
         android:label="fragment_destinos_recomendados"
         tools:layout="@layout/fragment_destinos_recomendados" />
     <fragment
         android:id="@+id/favoritosFragment"
-        android:name="com.example.rilafragments.ui.favoritos.FavoritosFragment"
+        android:name="com.example.rilafragments.fragment.favoritos.FavoritosFragment"
         android:label="fragment_favoritos"
         tools:layout="@layout/fragment_favoritos" />
 

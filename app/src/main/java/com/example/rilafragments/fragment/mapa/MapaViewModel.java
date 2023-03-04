@@ -1,4 +1,4 @@
-package com.example.rilafragments.ui.home;
+package com.example.rilafragments.fragment.mapa;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

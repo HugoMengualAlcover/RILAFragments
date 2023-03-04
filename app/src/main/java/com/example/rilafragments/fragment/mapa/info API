@@ -1,0 +1,28 @@
+
+
+**TravelPlaces API**
+
+{
+  getPlaces(categories:"NATURE", lat:39.4697500 , lng:-0.3773900 , maxDistMeters:50000, country:"Spain"){
+    id,
+    name,
+    country,
+    categories,
+    abstract,
+    distance,
+    lat,
+    lng
+  }
+}
+
+//POI = POINT OF INTEREST
+Available places categories - {"CITY", "NATURE", "MAJOR", "POI", "PEAK", "THEMEPARK", "CASTLE", "MUSEUM", "ZOO", "UNESCO",
+"HERITAGERAILWAY", "SKIAREA", "BEACH","AIRPORT","RAILSTATION"}
+
+Entre los parentesis va los parametros de busqueda y entre llaves la info que quieres sacar
+
+Pasar el nombre por la api de google maps para sacar mas info y la imagen
+
+https://rapidapi.com/sharemap-sharemap-default/api/travel-places/   ----> Ahí esta toda la info de la api
+
+--------------------------------------------------------------------------------------------------------

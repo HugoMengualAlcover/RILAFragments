@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.MapaFragment">
+    tools:context=".fragment.mapa.MapaFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             map:cameraZoom="10"
             map:uiRotateGestures="true"
             tools:layout="@layout/activity_log_in" />

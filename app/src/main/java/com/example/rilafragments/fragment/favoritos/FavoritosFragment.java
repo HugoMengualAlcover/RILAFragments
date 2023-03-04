@@ -1,4 +1,4 @@
-package com.example.rilafragments.ui.destino;
+package com.example.rilafragments.fragment.favoritos;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.rilafragments.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DestinoFragment#newInstance} factory method to
+ * Use the {@link FavoritosFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DestinoFragment extends Fragment {
+public class FavoritosFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class DestinoFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public DestinoFragment() {
+    public FavoritosFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class DestinoFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DestinoFragment.
+     * @return A new instance of fragment FavoritosFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DestinoFragment newInstance(String param1, String param2) {
-        DestinoFragment fragment = new DestinoFragment();
+    public static FavoritosFragment newInstance(String param1, String param2) {
+        FavoritosFragment fragment = new FavoritosFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class DestinoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_destino, container, false);
+        return inflater.inflate(R.layout.fragment_favoritos, container, false);
     }
 }

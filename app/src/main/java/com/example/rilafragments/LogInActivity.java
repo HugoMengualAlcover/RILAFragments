@@ -51,6 +51,8 @@ public class LogInActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     private void doLogin(String gmail, String pass) {
@@ -75,15 +77,11 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void upDateUI(FirebaseUser currentUser) {
+
         if (currentUser != null) {
             startActivity(new Intent(LogInActivity.this, MainActivity.class));
             finish();
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        upDateUI(authSystem.getCurrentUser());
-    }
 }
