@@ -18,7 +18,8 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        map:srcCompat="@drawable/menu" />
+        map:srcCompat="@drawable/menu"
+        android:translationZ="90dp"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment_content_main"
