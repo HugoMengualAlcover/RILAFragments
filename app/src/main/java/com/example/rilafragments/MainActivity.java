@@ -1,12 +1,15 @@
 package com.example.rilafragments;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.rilafragments.fragment.ayuda.AyudaFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        FragmentManager manager = getSupportFragmentManager();
+
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -49,12 +54,25 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+       binding.appBarMain.contentAppBar.btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawer.openDrawer(Gravity.LEFT);
+            }
+        });
+
         //---------------------------------------
         binding.navAyuda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                navController.navigate(R.id.ayudaFragment);
+                //No se si va, son pruebas
+                System.out.println("AYUDA");
+                manager.beginTransaction().detach(navHostFragment);
+                manager.beginTransaction().replace(R.id.contentAppBar, new AyudaFragment(), "FRAGMENT_AYUDA");
+                if(manager.findFragmentByTag("FRAGMENT_AYUDA").isVisible()){
+                    System.out.println("AYUDA IN");
+                }
+                //navController.navigate(R.id.ayudaFragment);
             }
         });
     }
