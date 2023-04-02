@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".SignUpActivity"
+    android:background="@color/Bianca">
 
 
     <LinearLayout
@@ -108,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:backgroundTint="@color/Bianca"
+            android:backgroundTint="@color/Albescent_White"
             android:paddingLeft="30dp"
             android:paddingTop="15dp"
             android:paddingRight="30dp"

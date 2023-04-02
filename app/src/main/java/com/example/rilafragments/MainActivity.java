@@ -5,8 +5,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 
-import com.example.rilafragments.fragment.ayuda.AyudaFragment;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.rilafragments.databinding.ActivityMainBinding;
+import com.example.rilafragments.fragments.ayuda.AyudaFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.fragment.app.FragmentManager;
@@ -17,8 +17,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.rilafragments.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-
-
+        
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

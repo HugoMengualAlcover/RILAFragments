@@ -1,4 +1,4 @@
-package com.example.rilafragments.fragment.favoritos;
+package com.example.rilafragments.fragments.favoritos;
 
 import android.os.Bundle;
 

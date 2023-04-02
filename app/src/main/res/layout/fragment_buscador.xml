@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.mapa.BuscadorFragment"
+    android:background="@color/Bianca">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/buscarView"
+        android:layout_width="242dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/search_view"
+        android:color="@color/purple_200"
+        android:radius="8dp"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="Buscar..." >
+
+    </androidx.appcompat.widget.SearchView>
+
+    <LinearLayout
+        android:id="@+id/layoutBotonesMapaActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#52000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/btnCiudadesMapaActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="50dp"
+            android:backgroundTint="@color/Albescent_White"
+            android:paddingLeft="60dp"
+            android:paddingTop="15dp"
+            android:paddingRight="60dp"
+            android:paddingBottom="15dp"
+            android:shadowRadius="10"
+            android:text="CIUDADES"
+            android:textColor="@color/PottersClay"
+            map:cornerRadius="20dp" />
+
+        <Button
+            android:id="@+id/btnPueblosMapaActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="50dp"
+            android:backgroundTint="@color/Albescent_White"
+            android:paddingLeft="60dp"
+            android:paddingTop="15dp"
+            android:paddingRight="60dp"
+            android:paddingBottom="15dp"
+            android:shadowRadius="10"
+            android:text="PUEBLOS"
+            android:textColor="@color/PottersClay"
+            map:cornerRadius="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/labelEuropaBuscadorFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Europa"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B6B5B5" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contenedorEuropa"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:padding="5dp" />
+
+            <TextView
+                android:id="@+id/labelAfricaBuscadorFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Africa"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B6B5B5" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contenedorAfrica"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:padding="5dp" />
+
+            <TextView
+                android:id="@+id/labelAsiaBuscadorFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Asia"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B6B5B5" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contenedorAsia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:padding="5dp" />
+
+            <TextView
+                android:id="@+id/labelAmericaBuscadorFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="America"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B6B5B5" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contenedorAmerica"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:padding="5dp" />
+
+            <TextView
+                android:id="@+id/labelOceaniaBuscadorFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Oceania"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B6B5B5"
+                android:padding="5dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contenedorOceania"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:padding="5dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

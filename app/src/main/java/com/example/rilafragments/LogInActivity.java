@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.example.rilafragments.databinding.ActivityLogInBinding;
 import com.example.rilafragments.databinding.ActivityMainBinding;
-import com.example.rilafragments.databinding.FragmentMapaBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;

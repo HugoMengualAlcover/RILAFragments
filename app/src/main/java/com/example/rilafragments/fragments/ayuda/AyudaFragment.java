@@ -1,4 +1,4 @@
-package com.example.rilafragments.fragment.ayuda;
+package com.example.rilafragments.fragments.ayuda;
 
 import android.os.Bundle;
 

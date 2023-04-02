@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.perfil.PerfilFragment">
+    tools:context=".fragments.perfil.PerfilFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
