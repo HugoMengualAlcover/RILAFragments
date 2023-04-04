@@ -24,65 +24,10 @@
 
     </androidx.appcompat.widget.SearchView>
 
-    <LinearLayout
-        android:id="@+id/layoutBotonesMapaActivity"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#52000000"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="invisible">
-
-        <Button
-            android:id="@+id/btnCiudadesMapaActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="50dp"
-            android:backgroundTint="@color/Albescent_White"
-            android:paddingLeft="60dp"
-            android:paddingTop="15dp"
-            android:paddingRight="60dp"
-            android:paddingBottom="15dp"
-            android:shadowRadius="10"
-            android:text="CIUDADES"
-            android:textColor="@color/PottersClay"
-            map:cornerRadius="20dp" />
-
-        <Button
-            android:id="@+id/btnPueblosMapaActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="50dp"
-            android:backgroundTint="@color/Albescent_White"
-            android:paddingLeft="60dp"
-            android:paddingTop="15dp"
-            android:paddingRight="60dp"
-            android:paddingBottom="15dp"
-            android:shadowRadius="10"
-            android:text="PUEBLOS"
-            android:textColor="@color/PottersClay"
-            map:cornerRadius="20dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="120dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </LinearLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="115dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

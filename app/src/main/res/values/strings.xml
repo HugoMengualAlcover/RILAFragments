@@ -15,7 +15,7 @@
     <string name="destinos_recomendados">Destinos Recomendados</string>
     <string name="novedades">Novedades</string>
     <string name="favoritos">Favoritos</string>
-    <string name="mapa">Mapa</string>
+    <string name="buscador">Buscador</string>
     <string name="ayuda">Ayuda</string>
     <string name="title_activity_maps">MapsActivity</string>
 </resources>

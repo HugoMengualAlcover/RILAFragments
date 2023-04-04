@@ -5,11 +5,13 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.databinding.ActivityMainBinding;
 import com.example.rilafragments.fragments.ayuda.AyudaFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.buscadorFragment, R.id.nav_gallery, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -62,13 +64,11 @@ public class MainActivity extends AppCompatActivity {
         binding.navAyuda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //No se si va, son pruebas
-                System.out.println("AYUDA");
-                manager.beginTransaction().detach(navHostFragment);
-                manager.beginTransaction().replace(R.id.contentAppBar, new AyudaFragment(), "FRAGMENT_AYUDA");
-                if(manager.findFragmentByTag("FRAGMENT_AYUDA").isVisible()){
-                    System.out.println("AYUDA IN");
-                }
+                FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                fragmentTransaction.detach(navHostFragment);
+                fragmentTransaction.replace(R.id.contentAppBar, new AyudaFragment(), Constantes.fragmentAyuda);//El tercero es el tag
+                fragmentTransaction.commit();
+
                 //navController.navigate(R.id.ayudaFragment);
             }
         });

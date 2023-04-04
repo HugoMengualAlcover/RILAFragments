@@ -66,8 +66,6 @@ public class BuscadorFragment extends Fragment{
         PaisesAdapter adapter = new PaisesAdapter(paisesList, R.layout.pais_button_model, this.getContext());
         layoutManager = new GridLayoutManager(this.getContext(), 3);
 
-        //adapter.set         Por acabar
-
         contenedor.setLayoutManager(layoutManager);
         contenedor.setAdapter(adapter);
     }

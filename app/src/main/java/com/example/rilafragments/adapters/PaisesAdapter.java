@@ -1,6 +1,7 @@
 package com.example.rilafragments.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +9,17 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rilafragments.APIs.Pais;
-import com.example.rilafragments.listeners.OnPaisBtnClickListener;
 import com.example.rilafragments.R;
+import com.example.rilafragments.constantes.Constantes;
+import com.example.rilafragments.fragments.ciudadesPueblos.CiudadesYPueblosFragment;
+import com.example.rilafragments.fragments.mapa.BuscadorFragment;
 
 import java.util.List;
 
@@ -21,12 +28,6 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
     private List<Pais> objects;
     private Context context;
     private int resource;
-
-    private OnPaisBtnClickListener listener = null;
-
-    void setOnPaisBtnListener(OnPaisBtnClickListener listener){
-        this.listener = listener;
-    }
 
     public PaisesAdapter(List<Pais> objects, int resource, Context context) {
         this.objects = objects;
@@ -50,10 +51,18 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
         Pais pais = objects.get(position);
         holder.btnPais.setText(pais.getNombre());
 
+
         holder.btnPais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onBtnCLick(pais);
+                Log.d("btn", "Click");
+                FragmentManager manager = ((FragmentActivity) view.getContext()).getSupportFragmentManager();
+                NavHostFragment navHostFragment = (NavHostFragment) manager.findFragmentById(R.id.nav_host_fragment_content_main);
+
+                FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                fragmentTransaction.detach(navHostFragment);
+                fragmentTransaction.replace(R.id.contentAppBar, new CiudadesYPueblosFragment(), Constantes.fragmentCiudadesYPueblos);
+                fragmentTransaction.commit();
             }
         });
     }
@@ -65,11 +74,9 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
 
     public class PaisVH extends RecyclerView.ViewHolder {
         Button btnPais;
-        LinearLayout layoutBotones;
         public PaisVH(@NonNull View itemView) {
             super(itemView);
             btnPais = itemView.findViewById(R.id.btnPais);
-            layoutBotones = itemView.findViewById(R.id.layoutBotonesMapaActivity);
         }
     }
 }

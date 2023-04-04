@@ -63,12 +63,12 @@
                 android:textColor="@color/PottersClay" />
 
             <TextView
-                android:id="@+id/nav_mapa"
+                android:id="@+id/nav_buscador"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:padding="15dp"
-                android:text="@string/mapa"
+                android:text="@string/buscador"
                 android:textAlignment="center"
                 android:textColor="@color/PottersClay" />
 

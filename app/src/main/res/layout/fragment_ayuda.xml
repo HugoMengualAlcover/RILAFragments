@@ -13,19 +13,11 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="41dp"
-            android:layout_height="35dp"
-            android:layout_gravity="start"
-            android:backgroundTint="#00090909"
-            android:src="@android:drawable/ic_menu_close_clear_cancel"
-            app:tint="#1F1F1F" />
-
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/roboto_thin"
             android:gravity="center"
