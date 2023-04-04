@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "380605347611",
+    "project_id": "rila-3c493",
+    "storage_bucket": "rila-3c493.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380605347611:android:7d407d17e578056c2545be",
+        "android_client_info": {
+          "package_name": "com.example.rilafragments"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380605347611-u55l5ddmt6bpdgpsm67gkd5nofu8ljaj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADE-Kw5U6Cwwahrs_UVPdfKMI1edQUlpw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380605347611-u55l5ddmt6bpdgpsm67gkd5nofu8ljaj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

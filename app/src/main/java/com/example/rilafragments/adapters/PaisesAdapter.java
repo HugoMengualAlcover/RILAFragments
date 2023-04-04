@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rilafragments.APIs.Pais;
+import com.example.rilafragments.listeners.OnPaisBtnClickListener;
 import com.example.rilafragments.R;
 
 import java.util.List;
@@ -20,6 +21,12 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
     private List<Pais> objects;
     private Context context;
     private int resource;
+
+    private OnPaisBtnClickListener listener = null;
+
+    void setOnPaisBtnListener(OnPaisBtnClickListener listener){
+        this.listener = listener;
+    }
 
     public PaisesAdapter(List<Pais> objects, int resource, Context context) {
         this.objects = objects;
@@ -46,7 +53,7 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
         holder.btnPais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                listener.onBtnCLick(pais);
             }
         });
     }
