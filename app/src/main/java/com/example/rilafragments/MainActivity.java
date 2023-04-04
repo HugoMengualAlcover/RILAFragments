@@ -8,6 +8,9 @@ import android.view.Menu;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.databinding.ActivityMainBinding;
 import com.example.rilafragments.fragments.ayuda.AyudaFragment;
+import com.example.rilafragments.fragments.destinosRecomendados.DestinosRecomendadosFragment;
+import com.example.rilafragments.fragments.favoritos.FavoritosFragment;
+import com.example.rilafragments.fragments.mapa.BuscadorFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.fragment.app.FragmentManager;
@@ -67,6 +70,48 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction = manager.beginTransaction();
                 fragmentTransaction.detach(navHostFragment);
                 fragmentTransaction.replace(R.id.contentAppBar, new AyudaFragment(), Constantes.fragmentAyuda);//El tercero es el tag
+                fragmentTransaction.commit();
+
+                //navController.navigate(R.id.ayudaFragment);
+            }
+        });
+
+        binding.navNovedades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+
+        binding.navBuscador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                fragmentTransaction.detach(navHostFragment);
+                fragmentTransaction.replace(R.id.contentAppBar, new BuscadorFragment(), Constantes.fragmentBuscador);//El tercero es el tag
+                fragmentTransaction.commit();
+
+                //navController.navigate(R.id.ayudaFragment);
+            }
+        });
+
+        binding.navFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                fragmentTransaction.detach(navHostFragment);
+                fragmentTransaction.replace(R.id.contentAppBar, new FavoritosFragment(), Constantes.fragmentFavoritos);//El tercero es el tag
+                fragmentTransaction.commit();
+
+                //navController.navigate(R.id.ayudaFragment);
+            }
+        });
+
+        binding.navDestinosRecomendados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                fragmentTransaction.detach(navHostFragment);
+                fragmentTransaction.replace(R.id.contentAppBar, new DestinosRecomendadosFragment(), Constantes.fragmentDestinosRecomendados);//El tercero es el tag
                 fragmentTransaction.commit();
 
                 //navController.navigate(R.id.ayudaFragment);
