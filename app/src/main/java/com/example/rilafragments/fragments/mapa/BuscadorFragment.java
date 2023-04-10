@@ -12,10 +12,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.rilafragments.APIs.Pais;
+import com.example.rilafragments.APIs.continente.Pais;
 import com.example.rilafragments.R;
 import com.example.rilafragments.adapters.PaisesAdapter;
 import com.example.rilafragments.databinding.FragmentBuscadorBinding;
+import com.example.rilafragments.fragments.ciudadesPueblos.CiudadesYPueblosFragment;
 
 import java.util.ArrayList;
 
@@ -58,10 +59,7 @@ public class BuscadorFragment extends Fragment{
     }
 
     public void setRecyclerViews(RecyclerView contenedor, String continente){
-        ArrayList<Pais> paisesList = new ArrayList<Pais>();//Lo rellenamos con los paises de continente de la api
-        paisesList.add(new Pais("Hola"));
-        paisesList.add(new Pais("Hal"));
-        paisesList.add(new Pais("Que"));
+        ArrayList<Pais> paisesList = new ArrayList<>();//Lo rellenamos con los paises de continente de la api
 
         PaisesAdapter adapter = new PaisesAdapter(paisesList, R.layout.pais_button_model, this.getContext());
         layoutManager = new GridLayoutManager(this.getContext(), 3);

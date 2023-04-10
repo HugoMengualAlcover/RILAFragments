@@ -1,6 +1,6 @@
 package com.example.rilafragments.APIs.ciudades;
 
-public class ActivitiesItem{
+public class Actividades {
 	private String descripcion;
 	private int precio;
 	private String nombreActividad;

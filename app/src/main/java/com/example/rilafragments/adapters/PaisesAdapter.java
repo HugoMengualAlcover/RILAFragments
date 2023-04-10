@@ -14,7 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.rilafragments.APIs.Pais;
+import com.example.rilafragments.APIs.continente.Pais;
 import com.example.rilafragments.R;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.fragments.ciudadesPueblos.CiudadesYPueblosFragment;
@@ -60,7 +60,7 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
                 fragmentTransaction.detach(navHostFragment);
 
                 CiudadesYPueblosFragment fragment = new CiudadesYPueblosFragment();
-                fragment.setArguments(setBundle()); //Le pasamos el bundle con los datos de que país ha habierto
+                fragment.setArguments(setBundle(pais)); //Le pasamos el bundle con los datos de que país ha habierto
 
                 fragmentTransaction.replace(R.id.contentAppBar, fragment, Constantes.FRAGMENT_CIUDADES_Y_PUEBLOS);
                 fragmentTransaction.commit();
@@ -81,9 +81,10 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
         }
     }
 
-    public Bundle setBundle(){
+    public Bundle setBundle(Pais pais){
         Bundle bundle = new Bundle();
-
+        bundle.putString(Constantes.COUNTRY_NAME, pais.getNombre());
+        //bundle.putStringArrayList(Constantes.COUNTRY_NAME, pais.getIds());    ToDo-> ESPERANDO A QUE SE ACTUALIZE API EN MONGO
         return bundle;
     }
 }

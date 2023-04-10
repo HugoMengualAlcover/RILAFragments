@@ -5,7 +5,7 @@ import java.util.List;
 public class Continente{
 	private Id id;
 	private String nombreContinente;
-	private List<PaisesItem> paises;
+	private List<Pais> paises;
 
 	public void setId(Id id){
 		this.id = id;
@@ -23,11 +23,11 @@ public class Continente{
 		return nombreContinente;
 	}
 
-	public void setPaises(List<PaisesItem> paises){
+	public void setPaises(List<Pais> paises){
 		this.paises = paises;
 	}
 
-	public List<PaisesItem> getPaises(){
+	public List<Pais> getPaises(){
 		return paises;
 	}
 

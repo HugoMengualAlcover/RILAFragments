@@ -1,6 +1,6 @@
 package com.example.rilafragments.APIs.continente;
 
-public class PaisesItem{
+public class Pais {
 	private String bandera;
 	private String nombre;
 
