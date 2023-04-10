@@ -64,21 +64,35 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //---------------------------------------
+        binding.navNovedades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Abre Ciudades y Oueblos Fragment, pero le envia solo  los datos de los recientemente añadidos
+            }
+        });
+
         binding.navAyuda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction = manager.beginTransaction();
-                fragmentTransaction.detach(navHostFragment);
-                fragmentTransaction.replace(R.id.contentAppBar, new AyudaFragment(), Constantes.fragmentAyuda);//El tercero es el tag
+                fragmentTransaction.detach(navHostFragment);                        //El tercero es el tag
+                fragmentTransaction.replace(R.id.contentAppBar, new AyudaFragment(), Constantes.FRAGMENT_AYUDA);
                 fragmentTransaction.commit();
 
-                //navController.navigate(R.id.ayudaFragment);
+                drawer.closeDrawer(Gravity.LEFT);
             }
         });
 
-        binding.navNovedades.setOnClickListener(new View.OnClickListener() {
+
+        binding.navFavoritos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                fragmentTransaction.detach(navHostFragment);
+                fragmentTransaction.replace(R.id.contentAppBar, new FavoritosFragment(), Constantes.FRAGMENT_FAVORITOS);
+                fragmentTransaction.commit();
+
+                drawer.closeDrawer(Gravity.LEFT);
             }
         });
 
@@ -87,22 +101,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction = manager.beginTransaction();
                 fragmentTransaction.detach(navHostFragment);
-                fragmentTransaction.replace(R.id.contentAppBar, new BuscadorFragment(), Constantes.fragmentBuscador);//El tercero es el tag
+                fragmentTransaction.replace(R.id.contentAppBar, new BuscadorFragment(), Constantes.FRAGMENT_BUSCADOR);
                 fragmentTransaction.commit();
 
-                //navController.navigate(R.id.ayudaFragment);
-            }
-        });
-
-        binding.navFavoritos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction fragmentTransaction = manager.beginTransaction();
-                fragmentTransaction.detach(navHostFragment);
-                fragmentTransaction.replace(R.id.contentAppBar, new FavoritosFragment(), Constantes.fragmentFavoritos);//El tercero es el tag
-                fragmentTransaction.commit();
-
-                //navController.navigate(R.id.ayudaFragment);
+                drawer.closeDrawer(Gravity.LEFT);
             }
         });
 
@@ -111,10 +113,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction = manager.beginTransaction();
                 fragmentTransaction.detach(navHostFragment);
-                fragmentTransaction.replace(R.id.contentAppBar, new DestinosRecomendadosFragment(), Constantes.fragmentDestinosRecomendados);//El tercero es el tag
+                fragmentTransaction.replace(R.id.contentAppBar, new DestinosRecomendadosFragment(), Constantes.FRAGMENT_DESTINOS_RECOMENDADOS);
                 fragmentTransaction.commit();
 
-                //navController.navigate(R.id.ayudaFragment);
+                drawer.closeDrawer(Gravity.LEFT);
             }
         });
     }

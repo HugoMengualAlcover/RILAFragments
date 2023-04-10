@@ -1,12 +1,11 @@
 package com.example.rilafragments.adapters;
 
 import android.content.Context;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
@@ -19,7 +18,6 @@ import com.example.rilafragments.APIs.Pais;
 import com.example.rilafragments.R;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.fragments.ciudadesPueblos.CiudadesYPueblosFragment;
-import com.example.rilafragments.fragments.mapa.BuscadorFragment;
 
 import java.util.List;
 
@@ -55,13 +53,16 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
         holder.btnPais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("btn", "Click");
                 FragmentManager manager = ((FragmentActivity) view.getContext()).getSupportFragmentManager();
                 NavHostFragment navHostFragment = (NavHostFragment) manager.findFragmentById(R.id.nav_host_fragment_content_main);
 
                 FragmentTransaction fragmentTransaction = manager.beginTransaction();
                 fragmentTransaction.detach(navHostFragment);
-                fragmentTransaction.replace(R.id.contentAppBar, new CiudadesYPueblosFragment(), Constantes.fragmentCiudadesYPueblos);
+
+                CiudadesYPueblosFragment fragment = new CiudadesYPueblosFragment();
+                fragment.setArguments(setBundle()); //Le pasamos el bundle con los datos de que país ha habierto
+
+                fragmentTransaction.replace(R.id.contentAppBar, fragment, Constantes.FRAGMENT_CIUDADES_Y_PUEBLOS);
                 fragmentTransaction.commit();
             }
         });
@@ -78,5 +79,11 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
             super(itemView);
             btnPais = itemView.findViewById(R.id.btnPais);
         }
+    }
+
+    public Bundle setBundle(){
+        Bundle bundle = new Bundle();
+
+        return bundle;
     }
 }
