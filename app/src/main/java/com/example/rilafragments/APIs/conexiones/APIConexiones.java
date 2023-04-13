@@ -10,7 +10,7 @@ import retrofit2.http.Path;
 public interface APIConexiones {
 
     @GET("/ciudades/{id}")
-    Call<Ciudad> getCiudades(@Path("id") String id);
+    Call<Ciudad> getCiudad(@Path("id") String id);
 
     @GET("/continentes")
     Call<Continente> getContinentes();

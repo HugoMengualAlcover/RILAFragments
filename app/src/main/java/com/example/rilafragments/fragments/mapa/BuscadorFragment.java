@@ -59,7 +59,7 @@ public class BuscadorFragment extends Fragment{
     }
 
     public void setRecyclerViews(RecyclerView contenedor, String continente){
-        ArrayList<Pais> paisesList = new ArrayList<>();//Lo rellenamos con los paises de continente de la api
+        ArrayList<Pais> paisesList = new ArrayList<>();//Todo Lo rellenamos con los paises de continente de la api
 
         PaisesAdapter adapter = new PaisesAdapter(paisesList, R.layout.pais_button_model, this.getContext());
         layoutManager = new GridLayoutManager(this.getContext(), 3);

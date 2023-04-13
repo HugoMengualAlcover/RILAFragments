@@ -3,6 +3,7 @@ package com.example.rilafragments.fragments.ciudadesPueblos;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -17,7 +18,7 @@ import com.example.rilafragments.APIs.conexiones.RetrofitObject;
 import com.example.rilafragments.R;
 import com.example.rilafragments.adapters.CiudadesAdapter;
 import com.example.rilafragments.constantes.Constantes;
-import com.example.rilafragments.databinding.FragmentBuscadorBinding;
+import com.example.rilafragments.databinding.FragmentCiudadesYPueblosBinding;
 
 import java.net.HttpURLConnection;
 import java.util.List;
@@ -28,11 +29,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 public class CiudadesYPueblosFragment extends Fragment {
 
-    private FragmentBuscadorBinding binding;
+    private FragmentCiudadesYPueblosBinding binding;
     private RecyclerView.LayoutManager layoutManager;
     private String countryName;
     private List<String> ciudadIdsList;
-    private List<Ciudad> ciudadList;
+    private List<Ciudad> ciudadesList;
 
     private CiudadesAdapter adapter;
 
@@ -46,33 +47,44 @@ public class CiudadesYPueblosFragment extends Fragment {
 
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        doGetUsuarios();
+        doGetCiudades();
 
-        adapter = new CiudadesAdapter(ciudadList, R.layout.card_view_ciudades_y_pueblos, this.getContext())
+        binding = FragmentCiudadesYPueblosBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ciudades_y_pueblos, container, false);
+        adapter = new CiudadesAdapter(ciudadesList, R.layout.card_view_ciudades_y_pueblos, this.getContext());
+        layoutManager = new GridLayoutManager(this.getContext(), 1);
+
+        binding.contenedor.setLayoutManager(layoutManager);
+        binding.contenedor.setAdapter(adapter);
+
+        return root;
     }
 
-    private void doGetUsuarios() {
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
+    private void doGetCiudades() {
         Retrofit retrofit = RetrofitObject.getConnection();
         APIConexiones api = retrofit.create(APIConexiones.class);
 
-        //Va cogiendo ciudad a ciudad las ciudades de un pais y las añade a ciudadList
+        //Va cogiendo ciudad a ciudad las ciudades de un pais y las añade a ciudadesList
         for (int i = 0; i < ciudadIdsList.size(); i++) {
-            Call<Ciudad> getCiudades = api.getCiudades(ciudadIdsList.get(i));
+            Call<Ciudad> getCiudades = api.getCiudad(ciudadIdsList.get(i));
 
             getCiudades.enqueue(new Callback<Ciudad>() {
                 @Override
                 public void onResponse(Call<Ciudad> call, Response<Ciudad> response) {
                     if(response.code() == HttpURLConnection.HTTP_OK){
                         Ciudad resp = response.body();
-                        ciudadList.add(resp);
-                        adapter.notifyItemInserted(ciudadList.size());
+                        ciudadesList.add(resp);
+                        adapter.notifyItemInserted(ciudadesList.size());
                     }
                 }
 

@@ -21,6 +21,9 @@
         android:text="Pais Name"
         android:textColor="@color/PottersClay"
         android:textSize="12sp"
-        app:cornerRadius="20dp" />
+        app:cornerRadius="20dp"
+        />
+
+    <!--android:drawableStart="@drawable/usuario"-->
 
 </androidx.cardview.widget.CardView>

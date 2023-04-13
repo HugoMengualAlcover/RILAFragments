@@ -1,6 +1,9 @@
 package com.example.rilafragments.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +21,8 @@ import com.example.rilafragments.APIs.continente.Pais;
 import com.example.rilafragments.R;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.fragments.ciudadesPueblos.CiudadesYPueblosFragment;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.List;
 
@@ -26,6 +31,8 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
     private List<Pais> objects;
     private Context context;
     private int resource;
+
+    private Target loadtarget;
 
     public PaisesAdapter(List<Pais> objects, int resource, Context context) {
         this.objects = objects;
@@ -48,6 +55,31 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
     public void onBindViewHolder(@NonNull PaisesAdapter.PaisVH holder, int position) {
         Pais pais = objects.get(position);
         holder.btnPais.setText(pais.getNombre());
+
+        /*if(loadtarget == null)
+            loadtarget = new Target() {
+                @Override
+                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                    Drawable bdrawable = new BitmapDrawable(bitmap);
+                    holder.btnPais.setCompoundDrawables(bdrawable, null, null, null);
+                }
+
+                @Override
+                public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+
+                }
+
+                @Override
+                public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                }
+            };
+
+        Picasso.get()
+                .load(pais.getBandera())
+                .placeholder(android.R.drawable.ic_popup_sync)
+                .error(android.R.drawable.stat_notify_error)
+                .into(loadtarget);*/
 
 
         holder.btnPais.setOnClickListener(new View.OnClickListener() {
