@@ -1,6 +1,8 @@
 package com.example.rilafragments.APIs.ciudades;
 
-public class Actividades {
+import java.io.Serializable;
+
+public class Actividades implements Serializable {
 	private String descripcion;
 	private int precio;
 	private String nombreActividad;

@@ -92,7 +92,7 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
                 fragmentTransaction.detach(navHostFragment);
 
                 CiudadesYPueblosFragment fragment = new CiudadesYPueblosFragment();
-                fragment.setArguments(setBundle(pais)); //Le pasamos el bundle con los datos de que país ha habierto
+                fragment.setArguments(setBundle(pais)); //Le pasamos el bundle con los datos de que país ha abierto
 
                 fragmentTransaction.replace(R.id.contentAppBar, fragment, Constantes.FRAGMENT_CIUDADES_Y_PUEBLOS);
                 fragmentTransaction.commit();
@@ -116,7 +116,7 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
     public Bundle setBundle(Pais pais){
         Bundle bundle = new Bundle();
         bundle.putString(Constantes.COUNTRY_NAME, pais.getNombre());
-        //bundle.putStringArrayList(Constantes.COUNTRY_NAME, pais.getIds());    ToDo-> ESPERANDO A QUE SE ACTUALIZE API EN MONGO
+        bundle.putSerializable(Constantes.CITY_IDs_LIST, pais.getCiudades());
         return bundle;
     }
 }

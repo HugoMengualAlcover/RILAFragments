@@ -10,7 +10,7 @@ import com.example.rilafragments.databinding.ActivityMainBinding;
 import com.example.rilafragments.fragments.ayuda.AyudaFragment;
 import com.example.rilafragments.fragments.destinosRecomendados.DestinosRecomendadosFragment;
 import com.example.rilafragments.fragments.favoritos.FavoritosFragment;
-import com.example.rilafragments.fragments.mapa.BuscadorFragment;
+import com.example.rilafragments.fragments.buscador.BuscadorFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.fragment.app.FragmentManager;

@@ -84,7 +84,6 @@ public class CiudadesYPueblosFragment extends Fragment {
                     if(response.code() == HttpURLConnection.HTTP_OK){
                         Ciudad resp = response.body();
                         ciudadesList.add(resp);
-                        adapter.notifyItemInserted(ciudadesList.size());
                     }
                 }
 
@@ -95,7 +94,7 @@ public class CiudadesYPueblosFragment extends Fragment {
                 }
             });
         }
-
+        adapter.notifyItemInserted(ciudadesList.size());
     }
 
 

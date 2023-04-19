@@ -1,4 +1,4 @@
-package com.example.rilafragments.fragments.mapa;
+package com.example.rilafragments.fragments.buscador;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -2,16 +2,16 @@ package com.example.rilafragments.APIs.continente;
 
 import java.util.List;
 
-public class Continente{
-	private Id id;
+public class Continente {
+	private String id;
 	private String nombreContinente;
 	private List<Pais> paises;
 
-	public void setId(Id id){
+	public void setId(String id){
 		this.id = id;
 	}
 
-	public Id getId(){
+	public String getId(){
 		return id;
 	}
 
@@ -34,7 +34,7 @@ public class Continente{
 	@Override
  	public String toString(){
 		return 
-			"Continente{" + 
+			"DataItem{" + 
 			"_id = '" + id + '\'' + 
 			",nombreContinente = '" + nombreContinente + '\'' + 
 			",paises = '" + paises + '\'' + 

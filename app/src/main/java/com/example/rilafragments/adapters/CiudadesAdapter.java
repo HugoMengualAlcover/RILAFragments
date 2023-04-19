@@ -1,6 +1,8 @@
 package com.example.rilafragments.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +11,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.rilafragments.APIs.ciudades.Actividades;
 import com.example.rilafragments.APIs.ciudades.Ciudad;
+import com.example.rilafragments.APIs.continente.Pais;
 import com.example.rilafragments.R;
+import com.example.rilafragments.constantes.Constantes;
+import com.example.rilafragments.fragments.ciudadesPueblos.CiudadesYPueblosFragment;
+import com.example.rilafragments.fragments.destino.DestinoFragment;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CiudadesAdapter extends RecyclerView.Adapter<CiudadesAdapter.CiudadVH> {
@@ -56,7 +69,24 @@ public class CiudadesAdapter extends RecyclerView.Adapter<CiudadesAdapter.Ciudad
         holder.btnFavoritos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Añadir a los favoritos del usuario
+                //ToDo Añadir a los favoritos del usuario
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager manager = ((FragmentActivity) view.getContext()).getSupportFragmentManager();
+                NavHostFragment navHostFragment = (NavHostFragment) manager.findFragmentById(R.id.nav_host_fragment_content_main);
+
+                FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                fragmentTransaction.detach(navHostFragment);
+
+                DestinoFragment fragment = new DestinoFragment();
+                fragment.setArguments(setBundle(ciudad)); //Le pasamos el bundle con los datos de la ciudad que ha abierto
+
+                fragmentTransaction.replace(R.id.contentAppBar, fragment, Constantes.FRAGMENT_DESTINO);
+                fragmentTransaction.commit();
             }
         });
     }
@@ -79,5 +109,14 @@ public class CiudadesAdapter extends RecyclerView.Adapter<CiudadesAdapter.Ciudad
             lblTitulo = itemView.findViewById(R.id.btnStarCiudadesPueblosCard);
             imageCiudad = itemView.findViewById(R.id.imgCiudadesPueblosCard);
         }
+    }
+
+    public Bundle setBundle(Ciudad ciudad){
+        ArrayList<Actividades> actividades = (ArrayList<Actividades>) ciudad.getActivities();
+
+        Bundle bundle = new Bundle();
+        bundle.putString(Constantes.CIUDAD_NAME, ciudad.getNombre());
+        bundle.putSerializable(Constantes.CIUDAD_ACTIVIDADES, actividades);
+        return bundle;
     }
 }
