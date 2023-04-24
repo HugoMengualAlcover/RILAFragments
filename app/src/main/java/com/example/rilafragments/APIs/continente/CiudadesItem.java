@@ -1,22 +1,31 @@
 package com.example.rilafragments.APIs.continente;
 
-public class CiudadesItem {
-    private String id;
-    private String nombre;
+public class CiudadesItem{
+	private String id;
+	private String ciudadId;
+	private String nombre;
 
-    public String getId() {
-        return id;
-    }
+	public void setId(String id){
+		this.id = id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public String getId(){
+		return id;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public void setCiudadId(String ciudadId){
+		this.ciudadId = ciudadId;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public String getCiudadId(){
+		return ciudadId;
+	}
+
+	public void setNombre(String nombre){
+		this.nombre = nombre;
+	}
+
+	public String getNombre(){
+		return nombre;
+	}
 }

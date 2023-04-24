@@ -15,10 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rilafragments.APIs.conexiones.APIConexiones;
 import com.example.rilafragments.APIs.conexiones.RetrofitObject;
+import com.example.rilafragments.APIs.continente.ApiResponse;
 import com.example.rilafragments.APIs.continente.Continente;
 import com.example.rilafragments.APIs.continente.Pais;
 import com.example.rilafragments.R;
 import com.example.rilafragments.adapters.PaisesAdapter;
+import com.example.rilafragments.databinding.FragmentBuscadorBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,12 +92,12 @@ public class BuscadorFragment extends Fragment{
         Retrofit retrofit = RetrofitObject.getConnection();
         APIConexiones api = retrofit.create(APIConexiones.class);
 
-        Call<ArrayList<Continente>> getContinentes = api.getContinentes();
-        getContinentes.enqueue(new Callback<ArrayList<Continente>>() {
+        Call<ApiResponse> getContinentes = api.getContinentes();
+        getContinentes.enqueue(new Callback<ApiResponse>() {
 
             @Override
-            public void onResponse(Call<ArrayList<Continente>> call, Response<ArrayList<Continente>> response) {
-                List<Continente> resp = response.body();
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                List<Continente> resp = response.body().getData();
                 continentes.addAll(resp);
                 setRecyclerViews(binding.contenedorEuropa, "Europa");
                 setRecyclerViews(binding.contenedorAfrica, "Africa");
@@ -105,7 +107,7 @@ public class BuscadorFragment extends Fragment{
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Continente>> call, Throwable t) {
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
                 Toast.makeText(getContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
                 Log.e("FAILURE", t.getLocalizedMessage());
             }

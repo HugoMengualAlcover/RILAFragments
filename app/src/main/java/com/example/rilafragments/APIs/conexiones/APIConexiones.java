@@ -1,6 +1,7 @@
 package com.example.rilafragments.APIs.conexiones;
 
 import com.example.rilafragments.APIs.ciudades.Ciudad;
+import com.example.rilafragments.APIs.continente.ApiResponse;
 import com.example.rilafragments.APIs.continente.Continente;
 
 import java.util.ArrayList;
@@ -16,5 +17,5 @@ public interface APIConexiones {
     Call<Ciudad> getCiudad(@Path("id") String id);
 
     @GET("/continentes")
-    Call<ArrayList<Continente>> getContinentes();
+    Call<ApiResponse> getContinentes();
 }
