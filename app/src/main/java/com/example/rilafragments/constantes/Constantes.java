@@ -10,7 +10,7 @@ public class Constantes {
     public static final String FRAGMENT_NOVEDADES = "FRAGMENT_NOVEDADES";
 
     public static final String COUNTRY_NAME = "COUNTRY_NAME";
-    public static final String CITY_IDs_LIST = "CITY_IDs_LIST";
+    public static final String CITY_LIST = "CITY_IDs_LIST";
 
     public static final String CIUDAD_NAME = "CIUDAD_NAME";
     public static final String CIUDAD_ACTIVIDADES = "CIUDAD_ACTIVIDADES";

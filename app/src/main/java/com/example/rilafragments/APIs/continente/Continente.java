@@ -1,8 +1,11 @@
 package com.example.rilafragments.APIs.continente;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Continente {
+	@SerializedName("_id")
 	private String id;
 	private String nombreContinente;
 	private List<Pais> paises;

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Ciudad{
 	private String descripcion;
-	private List<Actividades> activities;
+	private List<Actividad> activities;
 	private String urlCiudad;
 	private Id id;
 	private String nombre;
@@ -18,11 +18,11 @@ public class Ciudad{
 		return descripcion;
 	}
 
-	public void setActivities(List<Actividades> activities){
+	public void setActivities(List<Actividad> activities){
 		this.activities = activities;
 	}
 
-	public List<Actividades> getActivities(){
+	public List<Actividad> getActivities(){
 		return activities;
 	}
 

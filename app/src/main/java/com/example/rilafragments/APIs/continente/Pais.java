@@ -1,12 +1,15 @@
 package com.example.rilafragments.APIs.continente;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pais {
-	private String bandera;
+	@SerializedName("_id")
 	private String id;
 	private String nombre;
+	private String bandera;
 	private ArrayList<CiudadesItem> ciudades;
 
 	public void setBandera(String bandera){

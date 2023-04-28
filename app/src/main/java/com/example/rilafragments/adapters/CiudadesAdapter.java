@@ -17,12 +17,10 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.rilafragments.APIs.ciudades.Actividades;
+import com.example.rilafragments.APIs.ciudades.Actividad;
 import com.example.rilafragments.APIs.ciudades.Ciudad;
-import com.example.rilafragments.APIs.continente.Pais;
 import com.example.rilafragments.R;
 import com.example.rilafragments.constantes.Constantes;
-import com.example.rilafragments.fragments.ciudadesPueblos.CiudadesYPueblosFragment;
 import com.example.rilafragments.fragments.destino.DestinoFragment;
 import com.squareup.picasso.Picasso;
 
@@ -105,14 +103,14 @@ public class CiudadesAdapter extends RecyclerView.Adapter<CiudadesAdapter.Ciudad
             super(itemView);
 
             lblTitulo = itemView.findViewById(R.id.lblTituloCiudadesPueblosCard);
-            lblTitulo = itemView.findViewById(R.id.lblInfoCiudadesPueblosCard);
-            lblTitulo = itemView.findViewById(R.id.btnStarCiudadesPueblosCard);
+            lblInfo = itemView.findViewById(R.id.lblInfoCiudadesPueblosCard);
+            btnFavoritos = itemView.findViewById(R.id.btnStarCiudadesPueblosCard);
             imageCiudad = itemView.findViewById(R.id.imgCiudadesPueblosCard);
         }
     }
 
     public Bundle setBundle(Ciudad ciudad){
-        ArrayList<Actividades> actividades = (ArrayList<Actividades>) ciudad.getActivities();
+        ArrayList<Actividad> actividades = (ArrayList<Actividad>) ciudad.getActivities();
 
         Bundle bundle = new Bundle();
         bundle.putString(Constantes.CIUDAD_NAME, ciudad.getNombre());

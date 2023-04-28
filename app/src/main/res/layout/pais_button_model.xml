@@ -14,15 +14,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="#f4e7c9"
-        android:paddingLeft="15dp"
-        android:paddingTop="10dp"
-        android:paddingRight="15dp"
-        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
         android:text="Pais Name"
         android:textColor="@color/PottersClay"
         android:textSize="12sp"
         app:cornerRadius="20dp"
-        />
+        app:iconPadding="3dp" />
 
     <!--android:drawableStart="@drawable/usuario"-->
 

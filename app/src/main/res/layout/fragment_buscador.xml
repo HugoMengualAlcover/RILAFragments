@@ -30,8 +30,10 @@
         android:layout_marginTop="115dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,14 +58,13 @@
                 android:id="@+id/contenedorEuropa"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:padding="5dp" />
+                android:layout_marginBottom="8dp" />
 
             <TextView
                 android:id="@+id/labelAfricaBuscadorFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Africa"
+                android:text="África"
                 android:textSize="20dp" />
 
             <View
@@ -76,7 +77,7 @@
                 android:id="@+id/contenedorAfrica"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
                 android:padding="5dp" />
 
             <TextView
@@ -96,14 +97,14 @@
                 android:id="@+id/contenedorAsia"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
                 android:padding="5dp" />
 
             <TextView
                 android:id="@+id/labelAmericaBuscadorFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="America"
+                android:text="América"
                 android:textSize="20dp" />
 
             <View
@@ -116,7 +117,7 @@
                 android:id="@+id/contenedorAmerica"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
                 android:padding="5dp" />
 
             <TextView
@@ -137,7 +138,7 @@
                 android:id="@+id/contenedorOceania"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
                 android:padding="5dp" />
 
         </LinearLayout>

@@ -15,12 +15,14 @@ import android.widget.Toast;
 import com.example.rilafragments.APIs.ciudades.Ciudad;
 import com.example.rilafragments.APIs.conexiones.APIConexiones;
 import com.example.rilafragments.APIs.conexiones.RetrofitObject;
+import com.example.rilafragments.APIs.continente.CiudadesItem;
 import com.example.rilafragments.R;
 import com.example.rilafragments.adapters.CiudadesAdapter;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.databinding.FragmentCiudadesYPueblosBinding;
 
 import java.net.HttpURLConnection;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,8 +34,8 @@ public class CiudadesYPueblosFragment extends Fragment {
     private FragmentCiudadesYPueblosBinding binding;
     private RecyclerView.LayoutManager layoutManager;
     private String countryName;
-    private List<String> ciudadIdsList;
-    private List<Ciudad> ciudadesList;
+    private List<CiudadesItem> ciudadItemList;
+    private List<Ciudad> ciudadesList = new ArrayList<>();
 
     private CiudadesAdapter adapter;
 
@@ -42,7 +44,7 @@ public class CiudadesYPueblosFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             countryName = getArguments().getString(Constantes.COUNTRY_NAME);
-            ciudadIdsList = getArguments().getStringArrayList(Constantes.CITY_IDs_LIST);
+            ciudadItemList = (List<CiudadesItem>) getArguments().getSerializable(Constantes.CITY_LIST);
         }
 
     }
@@ -75,29 +77,31 @@ public class CiudadesYPueblosFragment extends Fragment {
         APIConexiones api = retrofit.create(APIConexiones.class);
 
         //Va cogiendo ciudad a ciudad las ciudades de un pais y las añade a ciudadesList
-        for (int i = 0; i < ciudadIdsList.size(); i++) {
-            Call<Ciudad> getCiudades = api.getCiudad(ciudadIdsList.get(i));
+        //for (int i = 0; i < ciudadItemList.size(); i++) {
+            Call<Ciudad> getCiudades = api.getCiudad(ciudadItemList.get(0).getCiudadId());
+
+            System.out.println("1");
 
             getCiudades.enqueue(new Callback<Ciudad>() {
                 @Override
                 public void onResponse(Call<Ciudad> call, Response<Ciudad> response) {
+                    System.out.println("Code "+response.code());
                     if(response.code() == HttpURLConnection.HTTP_OK){
                         Ciudad resp = response.body();
                         ciudadesList.add(resp);
+                        System.out.println("All good");
+                        adapter.notifyItemInserted(ciudadesList.size());
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Ciudad> call, Throwable t) {
+                    System.out.println("Error");
                     Toast.makeText(getContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
                     Log.e("FAILURE", t.getLocalizedMessage());
                 }
             });
-        }
-        adapter.notifyItemInserted(ciudadesList.size());
+
+       // }
     }
-
-
-
-
 }

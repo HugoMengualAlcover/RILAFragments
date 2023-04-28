@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager manager = getSupportFragmentManager();
 
-        setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         
@@ -53,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = navHostFragment.getNavController();
 
         // NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
        binding.appBarMain.contentAppBar.btnMenu.setOnClickListener(new View.OnClickListener() {

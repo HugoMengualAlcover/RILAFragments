@@ -15,8 +15,11 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp"
             android:fontFamily="@font/roboto_light"
+            android:gravity="right"
             android:text="CIUDADES"
             android:textColor="#825D33"
             android:textSize="34sp" />

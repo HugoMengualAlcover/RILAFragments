@@ -21,6 +21,7 @@ import com.example.rilafragments.APIs.continente.Pais;
 import com.example.rilafragments.R;
 import com.example.rilafragments.adapters.PaisesAdapter;
 import com.example.rilafragments.databinding.FragmentBuscadorBinding;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,8 @@ public class BuscadorFragment extends Fragment{
     private FragmentBuscadorBinding binding;
     private RecyclerView.LayoutManager layoutManager;
 
-    private List<Continente> continentes;
+    private ArrayList<Continente> continentes = new ArrayList<Continente>() {
+    };
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -98,7 +100,9 @@ public class BuscadorFragment extends Fragment{
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 List<Continente> resp = response.body().getData();
+                System.out.println();
                 continentes.addAll(resp);
+
                 setRecyclerViews(binding.contenedorEuropa, "Europa");
                 setRecyclerViews(binding.contenedorAfrica, "Africa");
                 setRecyclerViews(binding.contenedorAsia, "Asia");

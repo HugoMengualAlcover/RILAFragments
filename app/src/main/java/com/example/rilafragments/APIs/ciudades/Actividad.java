@@ -1,12 +1,11 @@
 package com.example.rilafragments.APIs.ciudades;
 
-import java.io.Serializable;
-
-public class Actividades implements Serializable {
+public class Actividad{
 	private String descripcion;
-	private int precio;
+	private String precio;
 	private String nombreActividad;
 	private String urlActividad;
+	private String id;
 
 	public void setDescripcion(String descripcion){
 		this.descripcion = descripcion;
@@ -16,11 +15,11 @@ public class Actividades implements Serializable {
 		return descripcion;
 	}
 
-	public void setPrecio(int precio){
+	public void setPrecio(String precio){
 		this.precio = precio;
 	}
 
-	public int getPrecio(){
+	public String getPrecio(){
 		return precio;
 	}
 
@@ -40,14 +39,23 @@ public class Actividades implements Serializable {
 		return urlActividad;
 	}
 
+	public void setId(String id){
+		this.id = id;
+	}
+
+	public String getId(){
+		return id;
+	}
+
 	@Override
  	public String toString(){
 		return 
-			"ActivitiesItem{" + 
+			"Actividad{" + 
 			"descripcion = '" + descripcion + '\'' + 
 			",precio = '" + precio + '\'' + 
 			",nombreActividad = '" + nombreActividad + '\'' + 
 			",urlActividad = '" + urlActividad + '\'' + 
+			",_id = '" + id + '\'' + 
 			"}";
 		}
 }

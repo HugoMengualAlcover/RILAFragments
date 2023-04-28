@@ -1,9 +1,12 @@
 package com.example.rilafragments.APIs.continente;
 
+import com.google.gson.annotations.SerializedName;
+
 public class CiudadesItem{
+	@SerializedName("_id")
 	private String id;
-	private String ciudadId;
 	private String nombre;
+	private String ciudadId;
 
 	public void setId(String id){
 		this.id = id;

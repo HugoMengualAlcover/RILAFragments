@@ -56,17 +56,18 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
         Pais pais = objects.get(position);
         holder.btnPais.setText(pais.getNombre());
 
-        /*if(loadtarget == null)
             loadtarget = new Target() {
                 @Override
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                    Drawable bdrawable = new BitmapDrawable(bitmap);
-                    holder.btnPais.setCompoundDrawables(bdrawable, null, null, null);
+                    Drawable bdrawable = new BitmapDrawable(context.getResources(), bitmap);
+                    holder.btnPais.setCompoundDrawablesWithIntrinsicBounds(bdrawable, null, null, null);
                 }
 
                 @Override
                 public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-
+                    System.out.println("Error Cargando Imagen");
+                    System.out.println(pais.getBandera());
+                    e.printStackTrace();
                 }
 
                 @Override
@@ -75,11 +76,13 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
                 }
             };
 
+
         Picasso.get()
                 .load(pais.getBandera())
                 .placeholder(android.R.drawable.ic_popup_sync)
                 .error(android.R.drawable.stat_notify_error)
-                .into(loadtarget);*/
+                .resize(60, 40)
+                .into(loadtarget);
 
 
         holder.btnPais.setOnClickListener(new View.OnClickListener() {
@@ -115,8 +118,9 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
 
     public Bundle setBundle(Pais pais){
         Bundle bundle = new Bundle();
+        System.out.println("ciudades:" + pais.getCiudades().size());
         bundle.putString(Constantes.COUNTRY_NAME, pais.getNombre());
-        bundle.putSerializable(Constantes.CITY_IDs_LIST, pais.getCiudades());
+        bundle.putSerializable(Constantes.CITY_LIST, pais.getCiudades());
         return bundle;
     }
 }
