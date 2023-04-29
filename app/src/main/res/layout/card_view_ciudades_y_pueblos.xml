@@ -16,29 +16,31 @@
 
         <ImageView
             android:id="@+id/imgCiudadesPueblosCard"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:scaleType="centerCrop"
             tools:srcCompat="@tools:sample/avatars" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/lblTituloCiudadesPueblosCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/lblInfoCiudadesPueblosCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:fontFamily="@font/roboto_light"
                 android:text="TextView" />
         </LinearLayout>
