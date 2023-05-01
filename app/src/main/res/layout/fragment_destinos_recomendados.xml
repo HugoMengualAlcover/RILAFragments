@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,24 +11,43 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/imgDestinosRecomendados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/capturadepantalla2022_10_07alas12_58_07" />
+
         <TextView
             android:id="@+id/lblTituloDestinosRecomendadosActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="60dp"
+            android:layout_weight="1"
             android:fontFamily="@font/roboto_thin"
             android:gravity="center"
-            android:minLines="2"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:text="DESTINOS \n RECOMENDADOS"
             android:textColor="@color/PottersClay"
-            android:textSize="32dp" />
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/lblDescripcionDestinosRecomendados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="Descripcion por defecto"
+            android:textAlignment="center" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/contenedorDestinosRecomendadosActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:layout_weight="7" />
     </LinearLayout>
 
 </FrameLayout>

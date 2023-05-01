@@ -3,28 +3,29 @@ package com.example.rilafragments.fragments.destinosRecomendados;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.rilafragments.APIs.ciudades.Actividad;
 import com.example.rilafragments.R;
+import com.example.rilafragments.adapters.DestinosAdapter;
+import com.example.rilafragments.constantes.Constantes;
+import com.example.rilafragments.databinding.FragmentDestinoBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DestinosRecomendadosFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.io.Serializable;
+import java.util.List;
+
 public class DestinosRecomendadosFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FragmentDestinoBinding binding;
+    private String ciudadName;
+    private List<Actividad> actividadesList;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private DestinosAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     public DestinosRecomendadosFragment() {
         // Required empty public constructor
@@ -34,16 +35,15 @@ public class DestinosRecomendadosFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param ciudadName Parameter 1.
+     * @param actividadesList Parameter 2.
      * @return A new instance of fragment DestinosRecomendadosFragment.
      */
-    // TODO: Rename and change types and number of parameters
-    public static DestinosRecomendadosFragment newInstance(String param1, String param2) {
+    public static DestinosRecomendadosFragment newInstance(String ciudadName, Serializable actividadesList) {
         DestinosRecomendadosFragment fragment = new DestinosRecomendadosFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(Constantes.CIUDAD_NAME, ciudadName);
+        args.putSerializable(Constantes.CIUDAD_ACTIVIDADES, actividadesList);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,8 +52,8 @@ public class DestinosRecomendadosFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            ciudadName = getArguments().getString(Constantes.CIUDAD_NAME);
+            actividadesList = (List<Actividad>) getArguments().getSerializable(Constantes.CIUDAD_ACTIVIDADES);
         }
     }
 
@@ -62,5 +62,11 @@ public class DestinosRecomendadosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_destinos_recomendados, container, false);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

@@ -20,7 +20,9 @@ import com.example.rilafragments.R;
 import com.example.rilafragments.adapters.CiudadesAdapter;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.databinding.FragmentCiudadesYPueblosBinding;
+import com.example.rilafragments.fragments.destinosRecomendados.DestinosRecomendadosFragment;
 
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +34,33 @@ import retrofit2.Retrofit;
 public class CiudadesYPueblosFragment extends Fragment {
 
     private FragmentCiudadesYPueblosBinding binding;
-    private RecyclerView.LayoutManager layoutManager;
     private String countryName;
     private List<CiudadesItem> ciudadItemList;
-    private List<Ciudad> ciudadesList = new ArrayList<>();
+    private List<Ciudad> ciudadesList;
 
+    private RecyclerView.LayoutManager layoutManager;
     private CiudadesAdapter adapter;
+
+    public CiudadesYPueblosFragment() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param countryName Parameter 1.
+     * @param ciudadItemList Parameter 2.
+     * @return A new instance of fragment CiudadesYPueblosFragment.
+     */
+    public static CiudadesYPueblosFragment newInstance(String countryName, Serializable ciudadItemList) {
+        CiudadesYPueblosFragment fragment = new CiudadesYPueblosFragment();
+        Bundle args = new Bundle();
+        args.putString(Constantes.COUNTRY_NAME, countryName);
+        args.putSerializable(Constantes.CITY_LIST, ciudadItemList);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +75,7 @@ public class CiudadesYPueblosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ciudadesList = new ArrayList<>();
         doGetCiudades();
 
         binding = FragmentCiudadesYPueblosBinding.inflate(inflater, container, false);

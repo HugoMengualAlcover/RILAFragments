@@ -94,9 +94,9 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
                 FragmentTransaction fragmentTransaction = manager.beginTransaction();
                 fragmentTransaction.detach(navHostFragment);
 
-                CiudadesYPueblosFragment fragment = new CiudadesYPueblosFragment();
-                fragment.setArguments(setBundle(pais)); //Le pasamos el bundle con los datos de que país ha abierto
-
+                CiudadesYPueblosFragment fragment = CiudadesYPueblosFragment.newInstance(
+                        pais.getNombre(), pais.getCiudades()
+                );
                 fragmentTransaction.replace(R.id.contentAppBar, fragment, Constantes.FRAGMENT_CIUDADES_Y_PUEBLOS);
                 fragmentTransaction.commit();
             }
@@ -116,11 +116,5 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
         }
     }
 
-    public Bundle setBundle(Pais pais){
-        Bundle bundle = new Bundle();
-        System.out.println("ciudades:" + pais.getCiudades().size());
-        bundle.putString(Constantes.COUNTRY_NAME, pais.getNombre());
-        bundle.putSerializable(Constantes.CITY_LIST, pais.getCiudades());
-        return bundle;
-    }
+
 }

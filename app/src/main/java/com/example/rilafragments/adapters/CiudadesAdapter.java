@@ -22,6 +22,7 @@ import com.example.rilafragments.APIs.ciudades.Ciudad;
 import com.example.rilafragments.R;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.fragments.destino.DestinoFragment;
+import com.example.rilafragments.fragments.destinosRecomendados.DestinosRecomendadosFragment;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
@@ -80,8 +81,9 @@ public class CiudadesAdapter extends RecyclerView.Adapter<CiudadesAdapter.Ciudad
                 FragmentTransaction fragmentTransaction = manager.beginTransaction();
                 fragmentTransaction.detach(navHostFragment);
 
-                DestinoFragment fragment = new DestinoFragment();
-                fragment.setArguments(setBundle(ciudad)); //Le pasamos el bundle con los datos de la ciudad que ha abierto
+                DestinosRecomendadosFragment fragment = DestinosRecomendadosFragment.newInstance(
+                        ciudad.getNombre(),
+                        (ArrayList<Actividad>) ciudad.getActivities());
 
                 fragmentTransaction.replace(R.id.contentAppBar, fragment, Constantes.FRAGMENT_DESTINO);
                 fragmentTransaction.commit();
@@ -109,12 +111,4 @@ public class CiudadesAdapter extends RecyclerView.Adapter<CiudadesAdapter.Ciudad
         }
     }
 
-    public Bundle setBundle(Ciudad ciudad){
-        ArrayList<Actividad> actividades = (ArrayList<Actividad>) ciudad.getActivities();
-
-        Bundle bundle = new Bundle();
-        bundle.putString(Constantes.CIUDAD_NAME, ciudad.getNombre());
-        bundle.putSerializable(Constantes.CIUDAD_ACTIVIDADES, actividades);
-        return bundle;
-    }
 }
