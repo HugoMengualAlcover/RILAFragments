@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,11 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RILAFragments.NoActionBar"
-        tools:targetApi="31"
-
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".MetodosDePagoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <!-- usesCleartextTraffic para poder conectar a la api aunque sea http y no https -->
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -29,10 +34,9 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD8hS-iIUyiEOEDy42hmSVoPUs8eiSBVMo"/>
+            android:value="AIzaSyD8hS-iIUyiEOEDy42hmSVoPUs8eiSBVMo" />
 
         <activity
             android:name=".LogInActivity"
@@ -57,6 +61,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -64,7 +69,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

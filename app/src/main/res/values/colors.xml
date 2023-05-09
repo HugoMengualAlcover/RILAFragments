@@ -14,4 +14,9 @@
     <color name="Albescent_White">#F4E7C9</color>
     <color name="PottersClay">#825D33</color>
     <color name="Birch">#352D24</color>
+
+    <color name="colorPrimaryTarjeta">#282C43</color>
+    <color name="colorPrimaryDarkTarjeta">#212538</color>
+    <color name="colorAccentTarjeta">#D81B60</color>
+    <color name="color_backgroundTarjeta">#FAFAFA</color>
 </resources>

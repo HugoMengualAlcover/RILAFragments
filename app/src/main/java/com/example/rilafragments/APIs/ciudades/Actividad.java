@@ -1,8 +1,10 @@
 package com.example.rilafragments.APIs.ciudades;
 
-public class Actividad{
+import java.io.Serializable;
+
+public class Actividad implements Serializable {
 	private String descripcion;
-	private String precio;
+	private float precio;
 	private String nombreActividad;
 	private String urlActividad;
 	private String id;
@@ -15,11 +17,11 @@ public class Actividad{
 		return descripcion;
 	}
 
-	public void setPrecio(String precio){
+	public void setPrecio(float precio){
 		this.precio = precio;
 	}
 
-	public String getPrecio(){
+	public float getPrecio(){
 		return precio;
 	}
 

@@ -1,8 +1,6 @@
 package com.example.rilafragments.adapters;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,16 +15,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.rilafragments.APIs.ciudades.Actividad;
 import com.example.rilafragments.APIs.ciudades.Ciudad;
 import com.example.rilafragments.R;
 import com.example.rilafragments.constantes.Constantes;
-import com.example.rilafragments.fragments.destino.DestinoFragment;
-import com.example.rilafragments.fragments.destinosRecomendados.DestinosRecomendadosFragment;
+import com.example.rilafragments.fragments.ciudad.CiudadFragment;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CiudadesAdapter extends RecyclerView.Adapter<CiudadesAdapter.CiudadVH> {
@@ -56,7 +50,7 @@ public class CiudadesAdapter extends RecyclerView.Adapter<CiudadesAdapter.Ciudad
     @Override
     public void onBindViewHolder(@NonNull CiudadesAdapter.CiudadVH holder, int position) {
         Ciudad ciudad = objects.get(position);
-        holder.lblTitulo.setText(ciudad.getNombre());
+        holder.lblTitulo.setText(ciudad.getName());
         holder.lblInfo.setText(ciudad.getDescripcion());
 
         Picasso.get()
@@ -81,9 +75,7 @@ public class CiudadesAdapter extends RecyclerView.Adapter<CiudadesAdapter.Ciudad
                 FragmentTransaction fragmentTransaction = manager.beginTransaction();
                 fragmentTransaction.detach(navHostFragment);
 
-                DestinosRecomendadosFragment fragment = DestinosRecomendadosFragment.newInstance(
-                        ciudad.getNombre(),
-                        (ArrayList<Actividad>) ciudad.getActivities());
+                CiudadFragment fragment = CiudadFragment.newInstance(ciudad);
 
                 fragmentTransaction.replace(R.id.contentAppBar, fragment, Constantes.FRAGMENT_DESTINO);
                 fragmentTransaction.commit();

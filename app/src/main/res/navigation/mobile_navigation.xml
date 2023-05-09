@@ -47,9 +47,9 @@
     </fragment>
     <fragment
         android:id="@+id/destinoFragment"
-        android:name="com.example.rilafragments.fragments.destino.DestinoFragment"
+        android:name="com.example.rilafragments.fragments.ciudad.CiudadFragment"
         android:label="fragment_destino"
-        tools:layout="@layout/fragment_destino" />
+        tools:layout="@layout/fragment_ciudad" />
     <fragment
         android:id="@+id/destinosRecomendadosFragment"
         android:name="com.example.rilafragments.fragments.destinosRecomendados.DestinosRecomendadosFragment"

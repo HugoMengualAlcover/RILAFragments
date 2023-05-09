@@ -57,8 +57,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/contenedorEuropa"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="8dp" />
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/labelAfricaBuscadorFragment"
@@ -76,9 +75,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/contenedorAfrica"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="8dp"
-                android:padding="5dp" />
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/labelAsiaBuscadorFragment"
@@ -96,9 +93,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/contenedorAsia"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="8dp"
-                android:padding="5dp" />
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/labelAmericaBuscadorFragment"
@@ -116,9 +111,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/contenedorAmerica"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="8dp"
-                android:padding="5dp" />
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/labelOceaniaBuscadorFragment"
@@ -137,9 +130,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/contenedorOceania"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="8dp"
-                android:padding="5dp" />
+                android:layout_height="match_parent" />
 
         </LinearLayout>
     </ScrollView>

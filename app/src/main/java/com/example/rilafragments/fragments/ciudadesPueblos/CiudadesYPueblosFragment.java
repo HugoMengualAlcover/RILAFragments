@@ -101,10 +101,8 @@ public class CiudadesYPueblosFragment extends Fragment {
         APIConexiones api = retrofit.create(APIConexiones.class);
 
         //Va cogiendo ciudad a ciudad las ciudades de un pais y las añade a ciudadesList
-        //for (int i = 0; i < ciudadItemList.size(); i++) {
+        for (int i = 0; i < ciudadItemList.size(); i++) {
             Call<Ciudad> getCiudades = api.getCiudad(ciudadItemList.get(0).getCiudadId());
-
-            System.out.println("1");
 
             getCiudades.enqueue(new Callback<Ciudad>() {
                 @Override
@@ -113,7 +111,6 @@ public class CiudadesYPueblosFragment extends Fragment {
                     if(response.code() == HttpURLConnection.HTTP_OK){
                         Ciudad resp = response.body();
                         ciudadesList.add(resp);
-                        System.out.println("All good");
                         adapter.notifyItemInserted(ciudadesList.size());
                     }
                 }
@@ -125,7 +122,6 @@ public class CiudadesYPueblosFragment extends Fragment {
                     Log.e("FAILURE", t.getLocalizedMessage());
                 }
             });
-
-       // }
+       }
     }
 }

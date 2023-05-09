@@ -1,13 +1,14 @@
 package com.example.rilafragments.APIs.ciudades;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Ciudad{
+public class Ciudad implements Serializable {
 	private String descripcion;
 	private List<Actividad> activities;
 	private String urlCiudad;
 	private Id id;
-	private String nombre;
+	private String name;
 	private String pais;
 
 	public void setDescripcion(String descripcion){
@@ -42,12 +43,12 @@ public class Ciudad{
 		return id;
 	}
 
-	public void setNombre(String nombre){
-		this.nombre = nombre;
+	public void setName(String name){
+		this.name = name;
 	}
 
-	public String getNombre(){
-		return nombre;
+	public String getName(){
+		return name;
 	}
 
 	public void setPais(String pais){
@@ -66,7 +67,7 @@ public class Ciudad{
 			",activities = '" + activities + '\'' + 
 			",urlCiudad = '" + urlCiudad + '\'' + 
 			",_id = '" + id + '\'' + 
-			",nombre = '" + nombre + '\'' + 
+			",nombre = '" + name + '\'' +
 			",pais = '" + pais + '\'' + 
 			"}";
 		}

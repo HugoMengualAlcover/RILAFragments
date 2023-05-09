@@ -18,4 +18,11 @@
     <string name="buscador">Buscador</string>
     <string name="ayuda">Ayuda</string>
     <string name="title_activity_maps">MapsActivity</string>
+
+    <!--String MetodosPago-->
+    <string name="banco_text">Banco</string>
+    <string name="caducidad_text">Cad</string>
+    <string name="fecha">04/23</string>
+    <string name="numero_cuenta">****  ****  ****  0011</string>
+    <string name="btn_text">Escanear Tarjeta</string>
 </resources>

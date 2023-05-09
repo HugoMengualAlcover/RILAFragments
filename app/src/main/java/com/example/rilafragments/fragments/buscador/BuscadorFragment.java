@@ -53,10 +53,6 @@ public class BuscadorFragment extends Fragment{
 
         doGetContinentes();
 
-        //Flipada q me pegao pa no tener q ir uno a uno
-
-
-
         /*final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);*/
         //getText es una funcion del ViewModel, viene por defecto, cambiar cuando sepamos que hacer con él
@@ -100,7 +96,6 @@ public class BuscadorFragment extends Fragment{
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 List<Continente> resp = response.body().getData();
-                System.out.println();
                 continentes.addAll(resp);
 
                 setRecyclerViews(binding.contenedorEuropa, "Europa");

@@ -11,20 +11,20 @@ import android.view.ViewGroup;
 
 import com.example.rilafragments.APIs.ciudades.Actividad;
 import com.example.rilafragments.R;
-import com.example.rilafragments.adapters.DestinosAdapter;
+import com.example.rilafragments.adapters.ActividadesAdapter;
 import com.example.rilafragments.constantes.Constantes;
-import com.example.rilafragments.databinding.FragmentDestinoBinding;
+import com.example.rilafragments.databinding.FragmentDestinosRecomendadosBinding;
 
 import java.io.Serializable;
 import java.util.List;
 
 public class DestinosRecomendadosFragment extends Fragment {
 
-    private FragmentDestinoBinding binding;
+    private FragmentDestinosRecomendadosBinding binding;
     private String ciudadName;
     private List<Actividad> actividadesList;
 
-    private DestinosAdapter adapter;
+    private ActividadesAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
     public DestinosRecomendadosFragment() {
@@ -42,8 +42,7 @@ public class DestinosRecomendadosFragment extends Fragment {
     public static DestinosRecomendadosFragment newInstance(String ciudadName, Serializable actividadesList) {
         DestinosRecomendadosFragment fragment = new DestinosRecomendadosFragment();
         Bundle args = new Bundle();
-        args.putString(Constantes.CIUDAD_NAME, ciudadName);
-        args.putSerializable(Constantes.CIUDAD_ACTIVIDADES, actividadesList);
+        args.putString(Constantes.CIUDAD, ciudadName);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,10 +50,7 @@ public class DestinosRecomendadosFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            ciudadName = getArguments().getString(Constantes.CIUDAD_NAME);
-            actividadesList = (List<Actividad>) getArguments().getSerializable(Constantes.CIUDAD_ACTIVIDADES);
-        }
+
     }
 
     @Override
