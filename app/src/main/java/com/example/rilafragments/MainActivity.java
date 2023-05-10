@@ -8,7 +8,7 @@ import android.view.Menu;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.databinding.ActivityMainBinding;
 import com.example.rilafragments.fragments.ayuda.AyudaFragment;
-import com.example.rilafragments.fragments.destinosRecomendados.DestinosRecomendadosFragment;
+import com.example.rilafragments.fragments.Descubrimientos.DescubrimientosFragment;
 import com.example.rilafragments.fragments.favoritos.FavoritosFragment;
 import com.example.rilafragments.fragments.buscador.BuscadorFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -106,12 +106,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.navDestinosRecomendados.setOnClickListener(new View.OnClickListener() {
+        binding.navDescubrimientos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction = manager.beginTransaction();
                 fragmentTransaction.detach(navHostFragment);
-                fragmentTransaction.replace(R.id.contentAppBar, new DestinosRecomendadosFragment(), Constantes.FRAGMENT_DESTINOS_RECOMENDADOS);
+                fragmentTransaction.replace(R.id.contentAppBar, new DescubrimientosFragment(), Constantes.FRAGMENT_DESCUBRIMIENTOS);
                 fragmentTransaction.commit();
 
                 drawer.closeDrawer(Gravity.LEFT);

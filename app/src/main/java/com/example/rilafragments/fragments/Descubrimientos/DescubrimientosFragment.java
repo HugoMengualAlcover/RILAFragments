@@ -1,4 +1,4 @@
-package com.example.rilafragments.fragments.destinosRecomendados;
+package com.example.rilafragments.fragments.Descubrimientos;
 
 import android.os.Bundle;
 
@@ -13,21 +13,21 @@ import com.example.rilafragments.APIs.ciudades.Actividad;
 import com.example.rilafragments.R;
 import com.example.rilafragments.adapters.ActividadesAdapter;
 import com.example.rilafragments.constantes.Constantes;
-import com.example.rilafragments.databinding.FragmentDestinosRecomendadosBinding;
+import com.example.rilafragments.databinding.FragmentDescubrimientosBinding;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class DestinosRecomendadosFragment extends Fragment {
+public class DescubrimientosFragment extends Fragment {
 
-    private FragmentDestinosRecomendadosBinding binding;
+    private FragmentDescubrimientosBinding binding;
     private String ciudadName;
     private List<Actividad> actividadesList;
 
     private ActividadesAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    public DestinosRecomendadosFragment() {
+    public DescubrimientosFragment() {
         // Required empty public constructor
     }
 
@@ -37,10 +37,10 @@ public class DestinosRecomendadosFragment extends Fragment {
      *
      * @param ciudadName Parameter 1.
      * @param actividadesList Parameter 2.
-     * @return A new instance of fragment DestinosRecomendadosFragment.
+     * @return A new instance of fragment DescubrimientosFragment.
      */
-    public static DestinosRecomendadosFragment newInstance(String ciudadName, Serializable actividadesList) {
-        DestinosRecomendadosFragment fragment = new DestinosRecomendadosFragment();
+    public static DescubrimientosFragment newInstance(String ciudadName, Serializable actividadesList) {
+        DescubrimientosFragment fragment = new DescubrimientosFragment();
         Bundle args = new Bundle();
         args.putString(Constantes.CIUDAD, ciudadName);
         fragment.setArguments(args);
@@ -57,7 +57,7 @@ public class DestinosRecomendadosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_destinos_recomendados, container, false);
+        return inflater.inflate(R.layout.fragment_descubrimientos, container, false);
     }
 
     @Override

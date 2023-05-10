@@ -73,12 +73,12 @@
                 android:textColor="@color/PottersClay" />
 
             <TextView
-                android:id="@+id/nav_destinosRecomendados"
+                android:id="@+id/nav_descubrimientos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:padding="15dp"
-                android:text="@string/destinos_recomendados"
+                android:text="@string/descubrimientos"
                 android:textAlignment="center"
                 android:textColor="@color/PottersClay" />
 

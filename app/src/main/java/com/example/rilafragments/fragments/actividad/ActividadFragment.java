@@ -1,5 +1,7 @@
 package com.example.rilafragments.fragments.actividad;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +16,8 @@ import com.example.rilafragments.R;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.databinding.FragmentActividadBinding;
 import com.squareup.picasso.Picasso;
+
+import java.util.Base64;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -67,16 +71,19 @@ public class ActividadFragment extends Fragment {
                 .error(android.R.drawable.stat_notify_error)
                 .into(binding.imgActividadFragment);
 
-        //ToDo decodificar base64 imagen del mapa
+        /*ToDo decodificar base64 imagen del mapa
+        byte[] decodedString = Base64.Decoder.decode(actividad.getBase64);
+        Bitmap decodedByte = BitmapFactory. decodeByteArray(decodedString, 0, decodedString.length);
+        binding.imgMapaActividadFragment.setImageBitmap(decodedByte);*/
 
         if(actividad.getPrecio() == 0){
             binding.btnComprarActividadFragment.setVisibility(View.GONE);
             System.out.println("GONE");
         }else
-        binding.btnComprarActividadFragment.setOnClickListener(new View.OnClickListener() {
+            binding.btnComprarActividadFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //ToDo comprar
             }
         });
 

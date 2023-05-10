@@ -6,7 +6,7 @@ public class Constantes {
     public static final String FRAGMENT_DESTINO = "FRAGMENT_DESTINO";
     public static final String FRAGMENT_BUSCADOR = "FRAGMENT_BUSCADOR";
     public static final String FRAGMENT_FAVORITOS = "FRAGMENT_FAVORITOS";
-    public static final String FRAGMENT_DESTINOS_RECOMENDADOS = "FRAGMENT_DESTINOS_RECOMENDADOS";
+    public static final String FRAGMENT_DESCUBRIMIENTOS = "FRAGMENT_DESCUBRIMIENTOS";
     public static final String FRAGMENT_NOVEDADES = "FRAGMENT_NOVEDADES";
 
     public static final String COUNTRY_NAME = "COUNTRY_NAME";

@@ -7,12 +7,12 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/nav_destinosRecomendados"
+        android:id="@+id/nav_descubrimientos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:textAlignment="center"
-        android:text="@string/destinos_recomendados"
+        android:text="@string/descubrimientos"
         />
     <TextView
         android:id="@+id/nav_novedades"

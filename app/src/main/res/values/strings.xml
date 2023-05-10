@@ -12,7 +12,7 @@
     <string name="menu_slideshow">Slideshow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="destinos_recomendados">Destinos Recomendados</string>
+    <string name="descubrimientos">Descubrimientos</string>
     <string name="novedades">Novedades</string>
     <string name="favoritos">Favoritos</string>
     <string name="buscador">Buscador</string>

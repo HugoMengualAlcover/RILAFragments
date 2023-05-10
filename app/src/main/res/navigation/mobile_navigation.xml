@@ -20,8 +20,8 @@
             android:id="@+id/action_nav_home_to_ciudadesYPueblosFragment"
             app:destination="@id/ciudadesYPueblosFragment" />
         <action
-            android:id="@+id/action_nav_home_to_destinosRecomendadosFragment"
-            app:destination="@id/destinosRecomendadosFragment" />
+            android:id="@+id/action_nav_home_to_descubrimientosFragment"
+            app:destination="@id/DescubrimientosFragment" />
         <action
             android:id="@+id/action_nav_home_to_favoritosFragment"
             app:destination="@id/favoritosFragment" />
@@ -51,10 +51,10 @@
         android:label="fragment_destino"
         tools:layout="@layout/fragment_ciudad" />
     <fragment
-        android:id="@+id/destinosRecomendadosFragment"
-        android:name="com.example.rilafragments.fragments.destinosRecomendados.DestinosRecomendadosFragment"
+        android:id="@+id/DescubrimientosFragment"
+        android:name="com.example.rilafragments.fragments.Descubrimientos.DescubrimientosFragment"
         android:label="fragment_destinos_recomendados"
-        tools:layout="@layout/fragment_destinos_recomendados" />
+        tools:layout="@layout/fragment_descubrimientos" />
     <fragment
         android:id="@+id/favoritosFragment"
         android:name="com.example.rilafragments.fragments.favoritos.FavoritosFragment"

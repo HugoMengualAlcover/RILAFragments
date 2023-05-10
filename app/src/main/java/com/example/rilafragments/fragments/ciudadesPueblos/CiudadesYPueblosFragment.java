@@ -20,7 +20,6 @@ import com.example.rilafragments.R;
 import com.example.rilafragments.adapters.CiudadesAdapter;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.databinding.FragmentCiudadesYPueblosBinding;
-import com.example.rilafragments.fragments.destinosRecomendados.DestinosRecomendadosFragment;
 
 import java.io.Serializable;
 import java.net.HttpURLConnection;
