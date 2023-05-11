@@ -5,9 +5,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -32,26 +34,30 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 
-public class BuscadorFragment extends Fragment{
+public class BuscadorFragment extends Fragment implements SearchView.OnQueryTextListener {
 
     private FragmentBuscadorBinding binding;
     private RecyclerView.LayoutManager layoutManager;
 
     public ArrayList<Continente> continentes = new ArrayList<Continente>() {
     };
-
+    PaisesAdapter adapterEur;
+    PaisesAdapter adapterAme;
+    PaisesAdapter adapterAsi;
+    PaisesAdapter adapterAfr;
+    PaisesAdapter adapterOce;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-
-
-        BuscadorViewModel homeViewModel = new ViewModelProvider(this).get(BuscadorViewModel.class);
+        //BuscadorViewModel homeViewModel = new ViewModelProvider(this).get(BuscadorViewModel.class);
 
         binding = FragmentBuscadorBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         doGetContinentes();
+
+        binding.buscarView.setOnQueryTextListener(this);
 
         /*final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);*/
@@ -66,24 +72,18 @@ public class BuscadorFragment extends Fragment{
         binding = null;
     }
 
-    public void setRecyclerViews(RecyclerView contenedor, String continente){
+    public void setRecyclerViews(RecyclerView contenedor, String continente, PaisesAdapter adapter, TextView label){
 
         List<Pais> paisesList;
         paisesList = getPaises(continente);
 
-        PaisesAdapter adapter = new PaisesAdapter(paisesList, R.layout.pais_button_model, this.getContext());
+        adapter = new PaisesAdapter(paisesList, R.layout.pais_button_model, this.getContext(), label);
         layoutManager = new GridLayoutManager(this.getContext(), 3);
 
         contenedor.setLayoutManager(layoutManager);
         contenedor.setAdapter(adapter);
-    }
 
-    public List<Pais> getPaises(String continente){
-        for (Continente c : continentes){
-            if (c.getNombreContinente().equalsIgnoreCase(continente))
-                return c.getPaises();
-        }
-        return new ArrayList<>();
+
     }
 
     public void doGetContinentes(){
@@ -98,11 +98,11 @@ public class BuscadorFragment extends Fragment{
                 List<Continente> resp = response.body().getData();
                 continentes.addAll(resp);
 
-                setRecyclerViews(binding.contenedorEuropa, "Europa");
-                setRecyclerViews(binding.contenedorAfrica, "Africa");
-                setRecyclerViews(binding.contenedorAsia, "Asia");
-                setRecyclerViews(binding.contenedorAmerica, "America");
-                setRecyclerViews(binding.contenedorOceania, "Oceania");
+                setRecyclerViews(binding.contenedorEuropa, "Europa", adapterEur, binding.labelEuropaBuscadorFragment);
+                setRecyclerViews(binding.contenedorAfrica, "Africa", adapterAfr, binding.labelAfricaBuscadorFragment);
+                setRecyclerViews(binding.contenedorAsia, "Asia", adapterAsi, binding.labelAsiaBuscadorFragment);
+                setRecyclerViews(binding.contenedorAmerica, "America", adapterAfr, binding.labelAmericaBuscadorFragment);
+                setRecyclerViews(binding.contenedorOceania, "Oceania", adapterOce, binding.labelOceaniaBuscadorFragment);
             }
 
             @Override
@@ -111,5 +111,28 @@ public class BuscadorFragment extends Fragment{
                 Log.e("FAILURE", t.getLocalizedMessage());
             }
         });
+    }
+
+    public List<Pais> getPaises(String continente){
+        for (Continente c : continentes){
+            if (c.getNombreContinente().equalsIgnoreCase(continente))
+                return c.getPaises();
+        }
+        return new ArrayList<>();
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        adapterEur.filtrar(s);
+        adapterAfr.filtrar(s);
+        adapterAme.filtrar(s);
+        adapterAsi.filtrar(s);
+        adapterOce.filtrar(s);
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        return false;
     }
 }

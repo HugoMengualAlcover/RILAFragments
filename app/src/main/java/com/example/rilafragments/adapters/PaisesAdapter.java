@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
@@ -24,20 +25,29 @@ import com.example.rilafragments.fragments.ciudadesPueblos.CiudadesYPueblosFragm
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
 
     private List<Pais> objects;
+    private List<Pais> objectsSearch;
     private Context context;
     private int resource;
+    TextView label;
+
 
     private Target loadtarget;
 
-    public PaisesAdapter(List<Pais> objects, int resource, Context context) {
+    public PaisesAdapter(List<Pais> objects, int resource, Context context, TextView label) {
         this.objects = objects;
         this.context = context;
         this.resource = resource;
+        this.label = label;
+
+        objectsSearch = new ArrayList<>();
+        objectsSearch.addAll(objects);
     }
 
     @NonNull
@@ -56,25 +66,23 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
         Pais pais = objects.get(position);
         holder.btnPais.setText(pais.getNombre());
 
-            loadtarget = new Target() {
-                @Override
-                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                    Drawable bdrawable = new BitmapDrawable(context.getResources(), bitmap);
-                    holder.btnPais.setCompoundDrawablesWithIntrinsicBounds(bdrawable, null, null, null);
-                }
+        loadtarget = new Target() {
+            @Override
+            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                Drawable bdrawable = new BitmapDrawable(context.getResources(), bitmap);
+                holder.btnPais.setCompoundDrawablesWithIntrinsicBounds(bdrawable, null, null, null);
+            }
+            @Override
+            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+                System.out.println("Error Cargando Imagen");
+                System.out.println(pais.getBandera());
+                e.printStackTrace();
+            }
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
 
-                @Override
-                public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-                    System.out.println("Error Cargando Imagen");
-                    System.out.println(pais.getBandera());
-                    e.printStackTrace();
-                }
-
-                @Override
-                public void onPrepareLoad(Drawable placeHolderDrawable) {
-
-                }
-            };
+            }
+        };
 
 
         Picasso.get()
@@ -116,5 +124,21 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
         }
     }
 
+    public void filtrar(String input){
+        label.setVisibility(View.VISIBLE);
+        if(input.length() == 0){
+            objectsSearch.clear();
+            objectsSearch.addAll(objects);
+        }else{
+            List<Pais> collection = objects.stream().
+                    filter(i -> i.getNombre().toLowerCase().contains(input.toLowerCase())).collect(Collectors.toList());
+            objects.clear();
+            objects.addAll(collection);
+            if(objects.size() == 0){
+                label.setVisibility(View.GONE);
+            }
+        }
+        notifyDataSetChanged();
+    }
 
 }
