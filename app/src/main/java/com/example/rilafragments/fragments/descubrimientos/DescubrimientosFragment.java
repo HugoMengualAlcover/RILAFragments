@@ -27,6 +27,7 @@ import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -73,6 +74,9 @@ public class DescubrimientosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ciudadList = new ArrayList<>();
+        continentes = new ArrayList<>();
+        ciudadesItemList = new ArrayList<>();
+
         doGetContinentes();
 
         binding = FragmentDescubrimientosBinding.inflate(inflater, container, false);
@@ -94,12 +98,25 @@ public class DescubrimientosFragment extends Fragment {
     }
 
     private void randomizedCiudadesAndCleanContinentes(){
+        ArrayList<String> gastados = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            ciudadesItemList.add( continentes.get( (int) (Math.random()*10) ).getPaises().get( (int)(Math.random()*10) ).getCiudades().get( (int) (Math.random()*10) ) );
+
+            int r1 = new Random().nextInt(continentes.size());
+            int r2 = new Random().nextInt(continentes.get(r1).getPaises().size());
+            int r3 = new Random().nextInt(continentes.get(r1).getPaises().get(r2).getCiudades().size());
+
+            String comprobacion = r1+" "+r2+" "+r3;
+            if(!gastados.contains(comprobacion)){
+                gastados.add(comprobacion);
+                ciudadesItemList.add( continentes.get(r1).getPaises().get(r2).getCiudades().get(r3) );
+            }else
+                i--;
+
         }
         continentes.clear();
         doGetCiudades();
     }
+
 
     private void doGetCiudades() {
         Retrofit retrofit = RetrofitObject.getConnection();
@@ -107,7 +124,7 @@ public class DescubrimientosFragment extends Fragment {
 
         //Va cogiendo ciudad a ciudad las ciudades de un pais y las añade a ciudadesList
         for (int i = 0; i < ciudadesItemList.size(); i++) {
-            Call<Ciudad> getCiudades = api.getCiudad(ciudadesItemList.get(0).getCiudadId());
+            Call<Ciudad> getCiudades = api.getCiudad(ciudadesItemList.get(i).getCiudadId());
 
             getCiudades.enqueue(new Callback<Ciudad>() {
                 @Override
@@ -141,6 +158,7 @@ public class DescubrimientosFragment extends Fragment {
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 List<Continente> resp = response.body().getData();
                 continentes.addAll(resp);
+                System.out.println("LENGTH "+continentes.size());
                 randomizedCiudadesAndCleanContinentes();
             }
 

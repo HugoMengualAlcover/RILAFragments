@@ -71,10 +71,9 @@ public class ActividadFragment extends Fragment {
                 .error(android.R.drawable.stat_notify_error)
                 .into(binding.imgActividadFragment);
 
-        /*ToDo decodificar base64 imagen del mapa
-        byte[] decodedString = Base64.Decoder.decode(actividad.getBase64);
+        byte[] decodedString = Base64.getDecoder().decode(actividad.getImgLocalizacion());
         Bitmap decodedByte = BitmapFactory. decodeByteArray(decodedString, 0, decodedString.length);
-        binding.imgMapaActividadFragment.setImageBitmap(decodedByte);*/
+        binding.imgMapaActividadFragment.setImageBitmap(decodedByte);
 
         if(actividad.getPrecio() == 0){
             binding.btnComprarActividadFragment.setVisibility(View.GONE);
@@ -95,4 +94,6 @@ public class ActividadFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+    public String base64 = "";
 }

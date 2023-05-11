@@ -101,7 +101,7 @@ public class CiudadesYPueblosFragment extends Fragment {
 
         //Va cogiendo ciudad a ciudad las ciudades de un pais y las añade a ciudadesList
         for (int i = 0; i < ciudadItemList.size(); i++) {
-            Call<Ciudad> getCiudades = api.getCiudad(ciudadItemList.get(0).getCiudadId());
+            Call<Ciudad> getCiudades = api.getCiudad(ciudadItemList.get(i).getCiudadId());
 
             getCiudades.enqueue(new Callback<Ciudad>() {
                 @Override

@@ -7,6 +7,16 @@ public class Actividad implements Serializable {
 	private float precio;
 	private String nombreActividad;
 	private String urlActividad;
+	private String imgLocalizacion;
+
+	public String getImgLocalizacion() {
+		return imgLocalizacion;
+	}
+
+	public void setImgLocalizacion(String imgLocalizacion) {
+		this.imgLocalizacion = imgLocalizacion;
+	}
+
 	private String id;
 
 	public void setDescripcion(String descripcion){
@@ -56,7 +66,8 @@ public class Actividad implements Serializable {
 			"descripcion = '" + descripcion + '\'' + 
 			",precio = '" + precio + '\'' + 
 			",nombreActividad = '" + nombreActividad + '\'' + 
-			",urlActividad = '" + urlActividad + '\'' + 
+			",urlActividad = '" + urlActividad + '\'' +
+			",imgLocalizacion = '" + imgLocalizacion + '\'' +
 			",_id = '" + id + '\'' + 
 			"}";
 		}
