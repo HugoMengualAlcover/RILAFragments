@@ -25,11 +25,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/roboto_thin"
             android:gravity="center"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:text="DESTINOS \n RECOMENDADOS"
+            android:text="DESCUBRIMIENTOS"
             android:textColor="@color/PottersClay"
             android:textSize="25sp" />
 

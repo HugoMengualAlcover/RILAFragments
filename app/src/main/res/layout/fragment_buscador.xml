@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Europa"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:id="@+id/view"
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="África"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:id="@+id/view2"
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Asia"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:id="@+id/view3"
@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="América"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:id="@+id/view4"
@@ -118,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Oceania"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:id="@+id/view5"

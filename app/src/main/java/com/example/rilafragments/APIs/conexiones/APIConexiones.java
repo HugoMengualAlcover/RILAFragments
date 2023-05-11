@@ -18,4 +18,7 @@ public interface APIConexiones {
 
     @GET("continentes")
     Call<ApiResponse> getContinentes();
+
+    @GET("ciudades")
+    Call<ApiResponse> getCiudades();
 }

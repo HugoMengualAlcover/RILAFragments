@@ -37,7 +37,7 @@ public class BuscadorFragment extends Fragment{
     private FragmentBuscadorBinding binding;
     private RecyclerView.LayoutManager layoutManager;
 
-    private ArrayList<Continente> continentes = new ArrayList<Continente>() {
+    public ArrayList<Continente> continentes = new ArrayList<Continente>() {
     };
 
 
