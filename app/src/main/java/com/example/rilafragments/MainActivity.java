@@ -8,7 +8,7 @@ import android.view.Menu;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.databinding.ActivityMainBinding;
 import com.example.rilafragments.fragments.ayuda.AyudaFragment;
-import com.example.rilafragments.fragments.Descubrimientos.DescubrimientosFragment;
+import com.example.rilafragments.fragments.descubrimientos.DescubrimientosFragment;
 import com.example.rilafragments.fragments.favoritos.FavoritosFragment;
 import com.example.rilafragments.fragments.buscador.BuscadorFragment;
 import com.google.android.material.navigation.NavigationView;

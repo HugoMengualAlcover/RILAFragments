@@ -52,7 +52,7 @@
         tools:layout="@layout/fragment_ciudad" />
     <fragment
         android:id="@+id/DescubrimientosFragment"
-        android:name="com.example.rilafragments.fragments.Descubrimientos.DescubrimientosFragment"
+        android:name="com.example.rilafragments.fragments.descubrimientos.DescubrimientosFragment"
         android:label="fragment_destinos_recomendados"
         tools:layout="@layout/fragment_descubrimientos" />
     <fragment

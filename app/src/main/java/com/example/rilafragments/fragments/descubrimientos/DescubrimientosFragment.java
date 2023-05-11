@@ -1,4 +1,4 @@
-package com.example.rilafragments.fragments.Descubrimientos;
+package com.example.rilafragments.fragments.descubrimientos;
 
 import android.os.Bundle;
 

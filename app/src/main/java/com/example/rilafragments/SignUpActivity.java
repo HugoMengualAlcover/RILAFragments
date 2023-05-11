@@ -35,10 +35,10 @@ public class SignUpActivity extends AppCompatActivity {
         binding.btnRegsitrarseSignUpActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = binding.txtNombreSignUpActivity.getText().toString();
-                String gmail = binding.txtEmailSignUpActivity.getText().toString();
-                String pass = binding.txtPasswordSignUpActivity.getText().toString();
-                String passConfirm = binding.txtConfirmPasswordSignUpActivity.getText().toString();
+                String name = binding.txtNombreSignUpActivity.getText().toString().trim();
+                String gmail = binding.txtEmailSignUpActivity.getText().toString().trim();
+                String pass = binding.txtPasswordSignUpActivity.getText().toString().trim();
+                String passConfirm = binding.txtConfirmPasswordSignUpActivity.getText().toString().trim();
 
 
                 if(name.isEmpty()){

@@ -16,13 +16,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".MetodosDePagoActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- usesCleartextTraffic para poder conectar a la api aunque sea http y no https -->
+        </activity> <!-- usesCleartextTraffic para poder conectar a la api aunque sea http y no https -->
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

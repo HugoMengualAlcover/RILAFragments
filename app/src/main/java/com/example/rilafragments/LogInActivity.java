@@ -36,8 +36,8 @@ public class LogInActivity extends AppCompatActivity {
         binding.btnEntrarLogInActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String gmail = binding.txtEmailLogInActivity.getText().toString();
-                String pass = binding.txtPasswordLogInActivity.getText().toString();
+                String gmail = binding.txtEmailLogInActivity.getText().toString().trim();
+                String pass = binding.txtPasswordLogInActivity.getText().toString().trim();
 
                 if(gmail.isEmpty()){
                     binding.txtEmailLogInActivityBox.setError("Campo Obligatorio");
@@ -51,7 +51,12 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
 
-
+        binding.btnOlvidoLogInActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LogInActivity.this, ForgotPasswordActivity.class));
+            }
+        });
     }
 
     private void doLogin(String gmail, String pass) {
