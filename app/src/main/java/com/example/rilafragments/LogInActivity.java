@@ -57,6 +57,8 @@ public class LogInActivity extends AppCompatActivity {
                 startActivity(new Intent(LogInActivity.this, ForgotPasswordActivity.class));
             }
         });
+
+
     }
 
     private void doLogin(String gmail, String pass) {

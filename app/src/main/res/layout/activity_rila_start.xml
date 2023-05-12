@@ -60,13 +60,6 @@
                 android:backgroundTint="#00FFFFFF"
                 app:srcCompat="@drawable/icons8_logo_de_google_30" />
 
-            <ImageButton
-                android:id="@+id/btnAppleMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="#00FFFFFF"
-                app:srcCompat="@drawable/icons8_mac_os_30" />
         </LinearLayout>
 
         <TextView
