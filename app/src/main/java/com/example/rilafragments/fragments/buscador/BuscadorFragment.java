@@ -37,7 +37,6 @@ import retrofit2.Retrofit;
 public class BuscadorFragment extends Fragment implements SearchView.OnQueryTextListener {
 
     private FragmentBuscadorBinding binding;
-    private RecyclerView.LayoutManager layoutManager;
 
     public ArrayList<Continente> continentes = new ArrayList<Continente>() {
     };
@@ -72,20 +71,6 @@ public class BuscadorFragment extends Fragment implements SearchView.OnQueryText
         binding = null;
     }
 
-    public void setRecyclerViews(RecyclerView contenedor, String continente, PaisesAdapter adapter, TextView label){
-
-        List<Pais> paisesList;
-        paisesList = getPaises(continente);
-
-        adapter = new PaisesAdapter(paisesList, R.layout.pais_button_model, this.getContext(), label);
-        layoutManager = new GridLayoutManager(this.getContext(), 3);
-
-        contenedor.setLayoutManager(layoutManager);
-        contenedor.setAdapter(adapter);
-
-
-    }
-
     public void doGetContinentes(){
         Retrofit retrofit = RetrofitObject.getConnection();
         APIConexiones api = retrofit.create(APIConexiones.class);
@@ -98,11 +83,35 @@ public class BuscadorFragment extends Fragment implements SearchView.OnQueryText
                 List<Continente> resp = response.body().getData();
                 continentes.addAll(resp);
 
-                setRecyclerViews(binding.contenedorEuropa, "Europa", adapterEur, binding.labelEuropaBuscadorFragment);
-                setRecyclerViews(binding.contenedorAfrica, "Africa", adapterAfr, binding.labelAfricaBuscadorFragment);
-                setRecyclerViews(binding.contenedorAsia, "Asia", adapterAsi, binding.labelAsiaBuscadorFragment);
-                setRecyclerViews(binding.contenedorAmerica, "America", adapterAfr, binding.labelAmericaBuscadorFragment);
-                setRecyclerViews(binding.contenedorOceania, "Oceania", adapterOce, binding.labelOceaniaBuscadorFragment);
+                //Europa
+                adapterEur = new PaisesAdapter(getPaises("Europa"), R.layout.pais_button_model, BuscadorFragment.this.getContext(), binding.europaGroup);
+
+                binding.contenedorEuropa.setLayoutManager(new GridLayoutManager(BuscadorFragment.this.getContext(), 3));
+                binding.contenedorEuropa.setAdapter(adapterEur);
+
+                //America
+                adapterAme = new PaisesAdapter(getPaises("America"), R.layout.pais_button_model, BuscadorFragment.this.getContext(), binding.americaGroup);
+
+                binding.contenedorAmerica.setLayoutManager( new GridLayoutManager(BuscadorFragment.this.getContext(), 3));
+                binding.contenedorAmerica.setAdapter(adapterAme);
+
+                //Asia
+                adapterAsi = new PaisesAdapter(getPaises("Asia"), R.layout.pais_button_model, BuscadorFragment.this.getContext(), binding.asiaGroup);
+
+                binding.contenedorAsia.setLayoutManager(new GridLayoutManager(BuscadorFragment.this.getContext(), 3));
+                binding.contenedorAsia.setAdapter(adapterAsi);
+
+                //Africa
+                adapterAfr = new PaisesAdapter(getPaises("Africa"), R.layout.pais_button_model, BuscadorFragment.this.getContext(), binding.africaGroup);
+
+                binding.contenedorAfrica.setLayoutManager(new GridLayoutManager(BuscadorFragment.this.getContext(), 3));
+                binding.contenedorAfrica.setAdapter(adapterAfr);
+
+                //Oceania
+                adapterOce = new PaisesAdapter(getPaises("Oceania"), R.layout.pais_button_model, BuscadorFragment.this.getContext(), binding.oceaniaGroup);
+
+                binding.contenedorOceania.setLayoutManager(new GridLayoutManager(BuscadorFragment.this.getContext(), 3));
+                binding.contenedorOceania.setAdapter(adapterOce);
             }
 
             @Override
@@ -127,12 +136,17 @@ public class BuscadorFragment extends Fragment implements SearchView.OnQueryText
         adapterAfr.filtrar(s);
         adapterAme.filtrar(s);
         adapterAsi.filtrar(s);
-        adapterOce.filtrar(s);
+        adapterOce.filtrar(s); 
         return false;
     }
 
     @Override
     public boolean onQueryTextChange(String s) {
+        adapterEur.filtrar(s);
+        adapterAfr.filtrar(s);
+        adapterAme.filtrar(s);
+        adapterAsi.filtrar(s);
+        adapterOce.filtrar(s);
         return false;
     }
 }

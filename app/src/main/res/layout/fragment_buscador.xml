@@ -41,6 +41,12 @@
             android:orientation="vertical"
             android:padding="10dp">
 
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/europaGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:constraint_referenced_ids="labelEuropaBuscadorFragment,view" />
+
             <TextView
                 android:id="@+id/labelEuropaBuscadorFragment"
                 android:layout_width="match_parent"
@@ -58,6 +64,12 @@
                 android:id="@+id/contenedorEuropa"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/africaGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:constraint_referenced_ids="labelAfricaBuscadorFragment,view2" />
 
             <TextView
                 android:id="@+id/labelAfricaBuscadorFragment"
@@ -77,6 +89,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/asiaGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:constraint_referenced_ids="view3,labelAsiaBuscadorFragment" />
+
             <TextView
                 android:id="@+id/labelAsiaBuscadorFragment"
                 android:layout_width="match_parent"
@@ -95,6 +113,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/americaGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:constraint_referenced_ids=",view4,labelAmericaBuscadorFragment" />
+
             <TextView
                 android:id="@+id/labelAmericaBuscadorFragment"
                 android:layout_width="match_parent"
@@ -112,6 +136,12 @@
                 android:id="@+id/contenedorAmerica"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/oceaniaGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:constraint_referenced_ids=",labelOceaniaBuscadorFragment,view5" />
 
             <TextView
                 android:id="@+id/labelOceaniaBuscadorFragment"

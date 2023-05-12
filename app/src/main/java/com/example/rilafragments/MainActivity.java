@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.databinding.ActivityMainBinding;
@@ -11,6 +12,7 @@ import com.example.rilafragments.fragments.ayuda.AyudaFragment;
 import com.example.rilafragments.fragments.descubrimientos.DescubrimientosFragment;
 import com.example.rilafragments.fragments.favoritos.FavoritosFragment;
 import com.example.rilafragments.fragments.buscador.BuscadorFragment;
+import com.example.rilafragments.fragments.perfil.PerfilFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.fragment.app.FragmentManager;
@@ -62,10 +64,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //---------------------------------------
+
+        TextView t = (TextView) binding.navView.getHeaderView(0).findViewById(R.id.textNavHeader);
+        //ToDO -> Poner nombre e imagen de usuario
+
+        binding.navView.getHeaderView(0).findViewById(R.id.layoutNavHeader).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                fragmentTransaction.detach(navHostFragment);                        //El tercero es el tag
+                fragmentTransaction.replace(R.id.contentAppBar, new PerfilFragment(), Constantes.FRAGMENT_PERFIL);
+                fragmentTransaction.commit();
+
+                drawer.closeDrawer(Gravity.LEFT);
+            }
+        });
+
         binding.navNovedades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Abre Ciudades y Oueblos Fragment, pero le envia solo  los datos de los recientemente añadidos
+                //ToDo - > Abre Ciudades y Pueblos Fragment, pero le envia solo  los datos de los recientemente añadidos
             }
         });
 

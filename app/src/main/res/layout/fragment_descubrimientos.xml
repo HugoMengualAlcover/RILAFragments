@@ -6,47 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".fragments.descubrimientos.DescubrimientosFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imgDescubrimientos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/capturadepantalla2022_10_07alas12_58_07" />
-
-        <TextView
-            android:id="@+id/lblTituloDescubrimientoFragment"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="DESCUBRIMIENTOS"
-            android:textColor="@color/PottersClay"
-            android:textSize="25sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/lblDescripcionDescubrimientosFragmnt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:text="Descripcion por defecto"
-            android:textAlignment="center" />
+            <ImageView
+                android:id="@+id/imgDescubrimientos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/descubrimientos_banner" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/contenedorDescubrimientosFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="7" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/lblTituloDescubrimientoFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="DESCUBRIMIENTOS"
+                android:textColor="@color/PottersClay"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/lblDescripcionDescubrimientosFragmnt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Una selección aleatoria que quiza te prodría interesar"
+                android:textAlignment="center" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/contenedorDescubrimientosFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

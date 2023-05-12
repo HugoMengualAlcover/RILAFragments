@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -35,12 +36,12 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
     private List<Pais> objectsSearch;
     private Context context;
     private int resource;
-    TextView label;
+    Group label;
 
 
     private Target loadtarget;
 
-    public PaisesAdapter(List<Pais> objects, int resource, Context context, TextView label) {
+    public PaisesAdapter(List<Pais> objects, int resource, Context context, Group label) {
         this.objects = objects;
         this.context = context;
         this.resource = resource;
@@ -63,7 +64,7 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
 
     @Override
     public void onBindViewHolder(@NonNull PaisesAdapter.PaisVH holder, int position) {
-        Pais pais = objects.get(position);
+        Pais pais = objectsSearch.get(position);
         holder.btnPais.setText(pais.getNombre());
 
         loadtarget = new Target() {
@@ -113,7 +114,7 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
 
     @Override
     public int getItemCount() {
-        return objects.size();
+        return objectsSearch.size();
     }
 
     public class PaisVH extends RecyclerView.ViewHolder {
@@ -125,19 +126,23 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
     }
 
     public void filtrar(String input){
+        System.out.println("0");
         label.setVisibility(View.VISIBLE);
         if(input.length() == 0){
             objectsSearch.clear();
             objectsSearch.addAll(objects);
+            System.out.println("1");
         }else{
             List<Pais> collection = objects.stream().
                     filter(i -> i.getNombre().toLowerCase().contains(input.toLowerCase())).collect(Collectors.toList());
-            objects.clear();
-            objects.addAll(collection);
-            if(objects.size() == 0){
+            objectsSearch.clear();
+            objectsSearch.addAll(collection);
+            if(objectsSearch.size() == 0){
                 label.setVisibility(View.GONE);
             }
+            System.out.println("2");
         }
+        System.out.println("3");
         notifyDataSetChanged();
     }
 
