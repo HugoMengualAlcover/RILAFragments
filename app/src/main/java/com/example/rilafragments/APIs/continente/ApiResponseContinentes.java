@@ -2,7 +2,7 @@ package com.example.rilafragments.APIs.continente;
 
 import java.util.List;
 
-public class ApiResponse{
+public class ApiResponseContinentes {
 	private List<Continente> data;
 
 	public void setData(List<Continente> data){
@@ -16,7 +16,7 @@ public class ApiResponse{
 	@Override
  	public String toString(){
 		return 
-			"ApiResponse{" + 
+			"ApiResponseContinentes{" +
 			"data = '" + data + '\'' + 
 			"}";
 		}

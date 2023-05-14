@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.rilafragments.databinding.ActivityForgotPasswordBinding;
-import com.example.rilafragments.databinding.ActivityLogInBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -26,6 +25,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         authSystem = FirebaseAuth.getInstance();
+        authSystem.setLanguageCode("es");
 
         binding.btnCambiarForgotPasswordActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,11 +35,11 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                     binding.txtEmailForgotPasswordActivity.setError("Campo obligatorio");
                 }else{
                     authSystem.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Toast.makeText(ForgotPasswordActivity.this, "Correo enviado correctamente", Toast.LENGTH_SHORT).show();
                             finish();
-                        }else{
-                            Toast.makeText(ForgotPasswordActivity.this,  task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(ForgotPasswordActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

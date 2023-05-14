@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.rilafragments.APIs.ciudades.ApiResponseCiudades;
 import com.example.rilafragments.APIs.ciudades.Ciudad;
 import com.example.rilafragments.APIs.conexiones.APIConexiones;
 import com.example.rilafragments.APIs.conexiones.RetrofitObject;
@@ -48,8 +49,9 @@ public class CiudadesYPueblosFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param countryName Parameter 1.
-     * @param ciudadItemList Parameter 2.
+     * @param countryName Nombre del país selleccionado. Tambien se utiliza para saber si se ha abierto desde
+     *                    el boton de un país o si se ha abierto novedades.
+     * @param ciudadItemList Lista de las ids y nombres de las ciudades del pais.
      * @return A new instance of fragment CiudadesYPueblosFragment.
      */
     public static CiudadesYPueblosFragment newInstance(String countryName, Serializable ciudadItemList) {
@@ -95,32 +97,56 @@ public class CiudadesYPueblosFragment extends Fragment {
         binding = null;
     }
 
+
     private void doGetCiudades() {
         Retrofit retrofit = RetrofitObject.getConnection();
         APIConexiones api = retrofit.create(APIConexiones.class);
 
-        //Va cogiendo ciudad a ciudad las ciudades de un pais y las añade a ciudadesList
-        for (int i = 0; i < ciudadItemList.size(); i++) {
-            Call<Ciudad> getCiudades = api.getCiudad(ciudadItemList.get(i).getCiudadId());
+        if(!countryName.equalsIgnoreCase(Constantes.NOVEDADES) || ciudadItemList == null){
+            Call<ApiResponseCiudades> getCiudades = api.getCiudades();
 
-            getCiudades.enqueue(new Callback<Ciudad>() {
+            getCiudades.enqueue(new Callback<ApiResponseCiudades>() {
                 @Override
-                public void onResponse(Call<Ciudad> call, Response<Ciudad> response) {
+                public void onResponse(Call<ApiResponseCiudades> call, Response<ApiResponseCiudades> response) {
                     System.out.println("Code "+response.code());
                     if(response.code() == HttpURLConnection.HTTP_OK){
-                        Ciudad resp = response.body();
-                        ciudadesList.add(resp);
+                        List<Ciudad> resp = response.body().getData();
+                        ciudadesList.addAll(resp);
                         adapter.notifyItemInserted(ciudadesList.size());
                     }
                 }
 
                 @Override
-                public void onFailure(Call<Ciudad> call, Throwable t) {
+                public void onFailure(Call<ApiResponseCiudades> call, Throwable t) {
                     System.out.println("Error");
                     Toast.makeText(getContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
                     Log.e("FAILURE", t.getLocalizedMessage());
                 }
             });
-       }
+        }else{
+            //Va cogiendo ciudad a ciudad las ciudades de un pais y las añade a ciudadesList
+            for (int i = 0; i < ciudadItemList.size(); i++) {
+                Call<Ciudad> getCiudades = api.getCiudad(ciudadItemList.get(i).getCiudadId());
+
+                getCiudades.enqueue(new Callback<Ciudad>() {
+                    @Override
+                    public void onResponse(Call<Ciudad> call, Response<Ciudad> response) {
+                        System.out.println("Code "+response.code());
+                        if(response.code() == HttpURLConnection.HTTP_OK){
+                            Ciudad resp = response.body();
+                            ciudadesList.add(resp);
+                            adapter.notifyItemInserted(ciudadesList.size());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Ciudad> call, Throwable t) {
+                        System.out.println("Error");
+                        Toast.makeText(getContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
+                        Log.e("FAILURE", t.getLocalizedMessage());
+                    }
+                });
+           }
+        }
     }
 }

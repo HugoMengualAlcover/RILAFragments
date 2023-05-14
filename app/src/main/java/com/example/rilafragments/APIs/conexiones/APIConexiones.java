@@ -1,11 +1,8 @@
 package com.example.rilafragments.APIs.conexiones;
 
+import com.example.rilafragments.APIs.ciudades.ApiResponseCiudades;
 import com.example.rilafragments.APIs.ciudades.Ciudad;
-import com.example.rilafragments.APIs.continente.ApiResponse;
-import com.example.rilafragments.APIs.continente.Continente;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.rilafragments.APIs.continente.ApiResponseContinentes;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -17,8 +14,8 @@ public interface APIConexiones {
     Call<Ciudad> getCiudad(@Path("id") String id);
 
     @GET("continentes")
-    Call<ApiResponse> getContinentes();
+    Call<ApiResponseContinentes> getContinentes();
 
     @GET("ciudades")
-    Call<ApiResponse> getCiudades();
+    Call<ApiResponseCiudades> getCiudades();
 }

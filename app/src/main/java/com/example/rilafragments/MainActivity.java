@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.databinding.ActivityMainBinding;
 import com.example.rilafragments.fragments.ayuda.AyudaFragment;
+import com.example.rilafragments.fragments.ciudadesPueblos.CiudadesYPueblosFragment;
 import com.example.rilafragments.fragments.descubrimientos.DescubrimientosFragment;
 import com.example.rilafragments.fragments.favoritos.FavoritosFragment;
 import com.example.rilafragments.fragments.buscador.BuscadorFragment;
@@ -83,7 +84,12 @@ public class MainActivity extends AppCompatActivity {
         binding.navNovedades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //ToDo - > Abre Ciudades y Pueblos Fragment, pero le envia solo  los datos de los recientemente añadidos
+                FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                fragmentTransaction.detach(navHostFragment);                        //El tercero es el tag
+                fragmentTransaction.replace(R.id.contentAppBar, CiudadesYPueblosFragment.newInstance(Constantes.NOVEDADES, null), Constantes.FRAGMENT_AYUDA);
+                fragmentTransaction.commit();
+
+                drawer.closeDrawer(Gravity.LEFT);
             }
         });
 

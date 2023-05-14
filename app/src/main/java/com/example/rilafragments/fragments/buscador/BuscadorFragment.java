@@ -5,25 +5,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rilafragments.APIs.conexiones.APIConexiones;
 import com.example.rilafragments.APIs.conexiones.RetrofitObject;
-import com.example.rilafragments.APIs.continente.ApiResponse;
+import com.example.rilafragments.APIs.continente.ApiResponseContinentes;
 import com.example.rilafragments.APIs.continente.Continente;
 import com.example.rilafragments.APIs.continente.Pais;
 import com.example.rilafragments.R;
 import com.example.rilafragments.adapters.PaisesAdapter;
 import com.example.rilafragments.databinding.FragmentBuscadorBinding;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,11 +71,11 @@ public class BuscadorFragment extends Fragment implements SearchView.OnQueryText
         Retrofit retrofit = RetrofitObject.getConnection();
         APIConexiones api = retrofit.create(APIConexiones.class);
 
-        Call<ApiResponse> getContinentes = api.getContinentes();
-        getContinentes.enqueue(new Callback<ApiResponse>() {
+        Call<ApiResponseContinentes> getContinentes = api.getContinentes();
+        getContinentes.enqueue(new Callback<ApiResponseContinentes>() {
 
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+            public void onResponse(Call<ApiResponseContinentes> call, Response<ApiResponseContinentes> response) {
                 List<Continente> resp = response.body().getData();
                 continentes.addAll(resp);
 
@@ -115,7 +111,7 @@ public class BuscadorFragment extends Fragment implements SearchView.OnQueryText
             }
 
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
+            public void onFailure(Call<ApiResponseContinentes> call, Throwable t) {
                 Toast.makeText(getContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
                 Log.e("FAILURE", t.getLocalizedMessage());
             }

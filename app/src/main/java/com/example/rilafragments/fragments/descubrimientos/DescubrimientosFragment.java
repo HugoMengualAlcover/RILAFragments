@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.rilafragments.APIs.ciudades.Ciudad;
 import com.example.rilafragments.APIs.conexiones.APIConexiones;
 import com.example.rilafragments.APIs.conexiones.RetrofitObject;
-import com.example.rilafragments.APIs.continente.ApiResponse;
+import com.example.rilafragments.APIs.continente.ApiResponseContinentes;
 import com.example.rilafragments.APIs.continente.CiudadesItem;
 import com.example.rilafragments.APIs.continente.Continente;
 import com.example.rilafragments.R;
@@ -151,11 +151,11 @@ public class DescubrimientosFragment extends Fragment {
         Retrofit retrofit = RetrofitObject.getConnection();
         APIConexiones api = retrofit.create(APIConexiones.class);
 
-        Call<ApiResponse> getContinentes = api.getContinentes();
-        getContinentes.enqueue(new Callback<ApiResponse>() {
+        Call<ApiResponseContinentes> getContinentes = api.getContinentes();
+        getContinentes.enqueue(new Callback<ApiResponseContinentes>() {
 
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+            public void onResponse(Call<ApiResponseContinentes> call, Response<ApiResponseContinentes> response) {
                 List<Continente> resp = response.body().getData();
                 continentes.addAll(resp);
                 System.out.println("LENGTH "+continentes.size());
@@ -163,7 +163,7 @@ public class DescubrimientosFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
+            public void onFailure(Call<ApiResponseContinentes> call, Throwable t) {
                 Toast.makeText(getContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
                 Log.e("FAILURE", t.getLocalizedMessage());
             }
