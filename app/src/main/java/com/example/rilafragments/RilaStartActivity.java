@@ -87,7 +87,7 @@ public class RilaStartActivity extends AppCompatActivity {
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Iniciar sesion con Google
+                signInGoogle();
             }
         });
     }
@@ -114,7 +114,6 @@ public class RilaStartActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-
                 firebaseAuth(account.getIdToken());
             } catch (ApiException e) {
                 e.printStackTrace();
