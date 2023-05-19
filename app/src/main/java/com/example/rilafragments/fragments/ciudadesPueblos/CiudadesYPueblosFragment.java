@@ -102,7 +102,7 @@ public class CiudadesYPueblosFragment extends Fragment {
         Retrofit retrofit = RetrofitObject.getConnection();
         APIConexiones api = retrofit.create(APIConexiones.class);
 
-        if(!countryName.equalsIgnoreCase(Constantes.NOVEDADES) || ciudadItemList == null){
+        if(countryName.equalsIgnoreCase(Constantes.NOVEDADES)){
             Call<ApiResponseCiudades> getCiudades = api.getCiudades();
 
             getCiudades.enqueue(new Callback<ApiResponseCiudades>() {

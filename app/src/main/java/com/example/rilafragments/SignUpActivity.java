@@ -16,12 +16,19 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class SignUpActivity extends AppCompatActivity {
 
     private ActivitySignUpBinding binding;
     private FirebaseAuth auth;
+    private DatabaseReference firebaseDbReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         auth = FirebaseAuth.getInstance();
+        firebaseDbReference = FirebaseDatabase.getInstance("https://rila-3c493-default-rtdb.europe-west1.firebasedatabase.app").getReference();
 
         binding.btnRegsitrarseSignUpActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +65,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 binding.txtConfirmPasswordSignUpActivityBox.setError("La contraseña no coincide");
                             }else{
                                 binding.txtConfirmPasswordSignUpActivityBox.setError(null);
-                                doRegister(gmail,passConfirm);
+                                doRegister(gmail,passConfirm, name);
                             }
                         }
                     }
@@ -66,12 +74,18 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private void doRegister(String gmail, String passConfirm) {
+    private void doRegister(String gmail, String passConfirm, String name) {
         auth.createUserWithEmailAndPassword(gmail, passConfirm)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+                            Map<String, Object> datosUsuario = new HashMap<>();
+                            datosUsuario.put("nombre", name);
+                            datosUsuario.put("email", auth.getCurrentUser().getEmail());
+
+                            firebaseDbReference.child("Usuario").push().setValue(datosUsuario);
                             upDateUI(auth.getCurrentUser());
                         }
                         else {

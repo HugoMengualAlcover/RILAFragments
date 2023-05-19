@@ -1,5 +1,6 @@
 package com.example.rilafragments.fragments.actividad;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 
 
 import com.example.rilafragments.APIs.ciudades.Actividad;
+import com.example.rilafragments.MetodosDePagoActivity;
 import com.example.rilafragments.R;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.databinding.FragmentActividadBinding;
@@ -82,7 +84,9 @@ public class ActividadFragment extends Fragment {
             binding.btnComprarActividadFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //ToDo comprar
+                Bundle bundle = new Bundle();
+                bundle.putFloat(Constantes.PRECIO, actividad.getPrecio());
+                startActivity(new Intent(getActivity(), MetodosDePagoActivity.class).putExtras(bundle));
             }
         });
 

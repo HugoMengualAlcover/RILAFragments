@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "380605347611-u55l5ddmt6bpdgpsm67gkd5nofu8ljaj.apps.googleusercontent.com",
+          "client_id": "380605347611-hrk8dg32qugcala8mir2ar2ih9qcam1k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rilafragments",
+            "certificate_hash": "a3760eec48139e0a1f9544b7e58ce26c83aebfc1"
+          }
+        },
+        {
+          "client_id": "380605347611-n2dfe8lkcvtru52s2ju9sqp3s6971etq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "380605347611-u55l5ddmt6bpdgpsm67gkd5nofu8ljaj.apps.googleusercontent.com",
+              "client_id": "380605347611-n2dfe8lkcvtru52s2ju9sqp3s6971etq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

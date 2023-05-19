@@ -14,6 +14,8 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rilafragments.APIs.ciudades.Actividad;
+import com.example.rilafragments.constantes.Constantes;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
 import com.paypal.android.sdk.payments.PayPalService;
@@ -44,10 +46,16 @@ public class MetodosDePagoActivity extends AppCompatActivity {
     CheckBox cbScanner;
     TextView textViewTargeta;
     TextView textViewFecha;
+    Float precio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (getIntent().getExtras() != null) {
+           precio = getIntent().getExtras().getFloat(Constantes.PRECIO);
+        }
+
         setContentView(R.layout.activity_metodos_de_pago);
 
         btnPagar = findViewById(R.id.btnPagarMetodosPago);
@@ -90,9 +98,6 @@ public class MetodosDePagoActivity extends AppCompatActivity {
     }
 
     private void getPayment() {
-        String precio = "3"; //Borrar este una vez implementado el todo
-        //precio = lblPrecio.getText().toString(); Todo -> Rellenar con el precio de la actividad abierta
-
         PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(precio)), "USD", "learn", PayPalPayment.PAYMENT_INTENT_SALE);
 
         Intent intent = new Intent (this, PaymentActivity.class);
@@ -114,19 +119,20 @@ public class MetodosDePagoActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-
         if(requestCode == PAYPAL_REQUEST_CODE){
-            PaymentConfirmation config = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
-            if(config != null){
+            if(data != null) {
+                PaymentConfirmation config = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+                if (config != null) {
 
-                try {
+                    try {
 
-                    String paymentDetails = config.toJSONObject().toString(4);
-                    JSONObject payObj = new JSONObject(paymentDetails);
+                        String paymentDetails = config.toJSONObject().toString(4);
+                        JSONObject payObj = new JSONObject(paymentDetails);
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Log.e("Error", "Something went wrong");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Log.e("Error", "Something went wrong");
+                    }
                 }
             }
         }else if(requestCode == Activity.RESULT_CANCELED){
@@ -135,15 +141,17 @@ public class MetodosDePagoActivity extends AppCompatActivity {
         else if(requestCode==PaymentActivity.RESULT_EXTRAS_INVALID){
             Log.i("Payment", "Invalid Payment");
         }else if(requestCode == SCAN_RESULT){
-            if(data != null && data.hasExtra(CardIOActivity.EXTRA_SCAN_RESULT));
-            CreditCard scanResult = data.getParcelableExtra(CardIOActivity.EXTRA_SCAN_RESULT);
-            textViewTargeta.setText(scanResult.getRedactedCardNumber());
+            if(data != null && data.hasExtra(CardIOActivity.EXTRA_SCAN_RESULT)) {
+                CreditCard scanResult = data.getParcelableExtra(CardIOActivity.EXTRA_SCAN_RESULT);
+                textViewTargeta.setText(scanResult.getRedactedCardNumber());
 
-            if(scanResult.isExpiryValid()){
-                String mes = String.valueOf(scanResult.expiryMonth);
-                String an = String.valueOf(scanResult.expiryYear);
-                textViewTargeta.setText(mes +"/"+ an);
+                if(scanResult.isExpiryValid()){
+                    String mes = String.valueOf(scanResult.expiryMonth);
+                    String an = String.valueOf(scanResult.expiryYear);
+                    textViewTargeta.setText(mes +"/"+ an);
+                }
             }
+
         }
     }
 }

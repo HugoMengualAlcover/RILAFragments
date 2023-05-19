@@ -1,6 +1,8 @@
 package com.example.rilafragments.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rilafragments.APIs.ciudades.Actividad;
+import com.example.rilafragments.MetodosDePagoActivity;
 import com.example.rilafragments.R;
 import com.example.rilafragments.constantes.Constantes;
 import com.example.rilafragments.fragments.actividad.ActividadFragment;
@@ -69,6 +72,9 @@ public class ActividadesAdapter extends RecyclerView.Adapter<ActividadesAdapter.
                 @Override
                 public void onClick(View view) {
                     System.out.println("CLICK");
+                    Bundle bundle = new Bundle();
+                    bundle.putFloat(Constantes.PRECIO, actividad.getPrecio());
+                    context.startActivity(new Intent(context, MetodosDePagoActivity.class).putExtras(bundle));
                 }
             });
 
