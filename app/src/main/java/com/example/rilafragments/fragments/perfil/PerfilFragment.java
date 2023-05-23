@@ -2,6 +2,7 @@ package com.example.rilafragments.fragments.perfil;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
@@ -13,9 +14,15 @@ import android.widget.Button;
 
 import com.example.rilafragments.R;
 import com.example.rilafragments.databinding.FragmentPerfilBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,35 +35,21 @@ import java.util.Map;
 public class PerfilFragment extends Fragment {
 
     private FragmentPerfilBinding binding;
-    private DatabaseReference firebaseDbReference = FirebaseDatabase.getInstance("https://rila-3c493-default-rtdb.europe-west1.firebasedatabase.app").getReference();
+    private DatabaseReference firebaseDbReference = FirebaseDatabase.getInstance("https://rila-3c493-default-rtdb.europe-west1.firebasedatabase.app").getReference("Usuarios");
     private FirebaseAuth auth;
 
     public PerfilFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PerfilFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PerfilFragment newInstance(String param1, String param2) {
+    public static PerfilFragment newInstance() {
         PerfilFragment fragment = new PerfilFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
-        }
     }
 
     @Override
@@ -67,19 +60,24 @@ public class PerfilFragment extends Fragment {
         View root = binding.getRoot();
 
         auth = FirebaseAuth.getInstance();
-
         if(auth.getCurrentUser() != null){
-            binding.lblCorreoVariablePerfilActivity.setText(auth.getCurrentUser().getEmail());
-            System.out.println("hola");
-            //todo get nombre
+            firebaseDbReference.child(auth.getCurrentUser().getEmail().split("\\.")[0]).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if(task.isSuccessful()){
+                        if(task.getResult().exists()){
+                            binding.lblNombreVariablePerfilActivity.setText(String.valueOf(task.getResult().child("nombre").getValue()));
+                            System.out.println(auth.getCurrentUser().getEmail().split("\\.")[0]);
+                        }
+                    }
+                }
+            });
         }
-
 
 
         binding.btnPrueba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("hola");
                 auth.signOut();
                 getActivity().finish();
             }

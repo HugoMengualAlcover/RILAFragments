@@ -29,16 +29,6 @@
             android:layout_marginTop="50dp"
             app:srcCompat="@drawable/usuarioconelmas" />
 
-        <TextView
-            android:id="@+id/lblNombreVariablePerfilActivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="@font/roboto_bold"
-            android:gravity="center"
-            android:text="TextView"
-            android:textColor="#825D33"
-            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/lblAcercaDeTiPerfilActivity"
@@ -65,22 +55,17 @@
                 android:fontFamily="@font/roboto_bold"
                 android:text="Nombre"
                 android:textColor="#825D33" />
-
-            <EditText
-                android:id="@+id/txtNombrePerfilActivity"
+            <TextView
+                android:id="@+id/lblNombreVariablePerfilActivity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1.5"
-                android:background="#3BFFCC80"
-                android:ems="10"
                 android:fontFamily="@font/roboto_light"
-                android:inputType="textPersonName"
-                android:text="Name"
+                android:text="TextView"
                 android:textAlignment="textEnd"
-                android:textColor="#825D33"
-                android:textSize="14sp" />
+                android:textColor="#825D33" />
 
         </LinearLayout>
 
@@ -108,7 +93,6 @@
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1.5"
                 android:fontFamily="@font/roboto_light"
-                android:gravity="center"
                 android:text="TextView"
                 android:textAlignment="textEnd"
                 android:textColor="#825D33" />

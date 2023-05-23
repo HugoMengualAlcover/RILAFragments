@@ -53,16 +53,6 @@
                 android:textColor="@color/PottersClay" />
 
             <TextView
-                android:id="@+id/nav_favoritos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:padding="15dp"
-                android:text="@string/favoritos"
-                android:textAlignment="center"
-                android:textColor="@color/PottersClay" />
-
-            <TextView
                 android:id="@+id/nav_buscador"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

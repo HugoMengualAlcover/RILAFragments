@@ -52,14 +52,5 @@
                 android:textAlignment="textStart" />
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/btnStarCiudadesPueblosCard"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:backgroundTint="#00FFFFFF"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_baseline_star_outline_24" />
-
     </LinearLayout>
 </androidx.cardview.widget.CardView>

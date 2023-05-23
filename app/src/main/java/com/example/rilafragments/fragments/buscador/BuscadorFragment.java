@@ -29,13 +29,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-
 public class BuscadorFragment extends Fragment implements SearchView.OnQueryTextListener {
 
     private FragmentBuscadorBinding binding;
 
-    public ArrayList<Continente> continentes = new ArrayList<Continente>() {
-    };
+    public ArrayList<Continente> continentes = new ArrayList<Continente>();
     PaisesAdapter adapterEur;
     PaisesAdapter adapterAme;
     PaisesAdapter adapterAsi;
@@ -45,8 +43,6 @@ public class BuscadorFragment extends Fragment implements SearchView.OnQueryText
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        //BuscadorViewModel homeViewModel = new ViewModelProvider(this).get(BuscadorViewModel.class);
-
         binding = FragmentBuscadorBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -54,10 +50,6 @@ public class BuscadorFragment extends Fragment implements SearchView.OnQueryText
 
         binding.buscarView.setOnQueryTextListener(this);
 
-        /*final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);*/
-        //getText es una funcion del ViewModel, viene por defecto, cambiar cuando sepamos que hacer con él
-        
         return root;
     }
 
@@ -80,31 +72,31 @@ public class BuscadorFragment extends Fragment implements SearchView.OnQueryText
                 continentes.addAll(resp);
 
                 //Europa
-                adapterEur = new PaisesAdapter(getPaises("Europa"), R.layout.pais_button_model, BuscadorFragment.this.getContext(), binding.europaGroup);
+                adapterEur = new PaisesAdapter(getPaises("Europa"), R.layout.pais_button_model, BuscadorFragment.this.getContext());
 
                 binding.contenedorEuropa.setLayoutManager(new GridLayoutManager(BuscadorFragment.this.getContext(), 3));
                 binding.contenedorEuropa.setAdapter(adapterEur);
 
                 //America
-                adapterAme = new PaisesAdapter(getPaises("America"), R.layout.pais_button_model, BuscadorFragment.this.getContext(), binding.americaGroup);
+                adapterAme = new PaisesAdapter(getPaises("America"), R.layout.pais_button_model, BuscadorFragment.this.getContext());
 
                 binding.contenedorAmerica.setLayoutManager( new GridLayoutManager(BuscadorFragment.this.getContext(), 3));
                 binding.contenedorAmerica.setAdapter(adapterAme);
 
                 //Asia
-                adapterAsi = new PaisesAdapter(getPaises("Asia"), R.layout.pais_button_model, BuscadorFragment.this.getContext(), binding.asiaGroup);
+                adapterAsi = new PaisesAdapter(getPaises("Asia"), R.layout.pais_button_model, BuscadorFragment.this.getContext());
 
                 binding.contenedorAsia.setLayoutManager(new GridLayoutManager(BuscadorFragment.this.getContext(), 3));
                 binding.contenedorAsia.setAdapter(adapterAsi);
 
                 //Africa
-                adapterAfr = new PaisesAdapter(getPaises("Africa"), R.layout.pais_button_model, BuscadorFragment.this.getContext(), binding.africaGroup);
+                adapterAfr = new PaisesAdapter(getPaises("Africa"), R.layout.pais_button_model, BuscadorFragment.this.getContext());
 
                 binding.contenedorAfrica.setLayoutManager(new GridLayoutManager(BuscadorFragment.this.getContext(), 3));
                 binding.contenedorAfrica.setAdapter(adapterAfr);
 
                 //Oceania
-                adapterOce = new PaisesAdapter(getPaises("Oceania"), R.layout.pais_button_model, BuscadorFragment.this.getContext(), binding.oceaniaGroup);
+                adapterOce = new PaisesAdapter(getPaises("Oceania"), R.layout.pais_button_model, BuscadorFragment.this.getContext());
 
                 binding.contenedorOceania.setLayoutManager(new GridLayoutManager(BuscadorFragment.this.getContext(), 3));
                 binding.contenedorOceania.setAdapter(adapterOce);
@@ -128,21 +120,21 @@ public class BuscadorFragment extends Fragment implements SearchView.OnQueryText
 
     @Override
     public boolean onQueryTextSubmit(String s) {
-        adapterEur.filtrar(s);
-        adapterAfr.filtrar(s);
-        adapterAme.filtrar(s);
-        adapterAsi.filtrar(s);
-        adapterOce.filtrar(s); 
+        adapterEur.filtrar(s, binding.europaGroup);
+        adapterAfr.filtrar(s, binding.africaGroup);
+        adapterAme.filtrar(s, binding.americaGroup);
+        adapterAsi.filtrar(s, binding.asiaGroup);
+        adapterOce.filtrar(s, binding.oceaniaGroup);
         return false;
     }
 
     @Override
     public boolean onQueryTextChange(String s) {
-        adapterEur.filtrar(s);
-        adapterAfr.filtrar(s);
-        adapterAme.filtrar(s);
-        adapterAsi.filtrar(s);
-        adapterOce.filtrar(s);
+        adapterEur.filtrar(s, binding.europaGroup);
+        adapterAfr.filtrar(s, binding.africaGroup);
+        adapterAme.filtrar(s, binding.americaGroup);
+        adapterAsi.filtrar(s, binding.asiaGroup);
+        adapterOce.filtrar(s, binding.oceaniaGroup);
         return false;
     }
 }

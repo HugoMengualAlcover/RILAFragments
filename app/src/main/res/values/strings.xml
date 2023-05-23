@@ -25,4 +25,6 @@
     <string name="fecha">04/23</string>
     <string name="numero_cuenta">****  ****  ****  0011</string>
     <string name="btn_text">Escanear Tarjeta</string>
+
+    <string name="numeroTelefonoAyuda">Para ponere en contacto con nopsotros llame al siguiente número: <b>111 222 333</b> </string>
 </resources>

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,7 +42,7 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
 
     private Target loadtarget;
 
-    public PaisesAdapter(List<Pais> objects, int resource, Context context, Group label) {
+    public PaisesAdapter(List<Pais> objects, int resource, Context context) {
         this.objects = objects;
         this.context = context;
         this.resource = resource;
@@ -125,7 +126,7 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
         }
     }
 
-    public void filtrar(String input){
+    public void filtrar(String input, LinearLayout label){
         System.out.println("0");
         label.setVisibility(View.VISIBLE);
         if(input.length() == 0){
@@ -137,12 +138,11 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
                     filter(i -> i.getNombre().toLowerCase().contains(input.toLowerCase())).collect(Collectors.toList());
             objectsSearch.clear();
             objectsSearch.addAll(collection);
-            if(objectsSearch.size() == 0){
-                label.setVisibility(View.GONE);
-            }
+        }
+        if(objectsSearch.isEmpty()){
+            label.setVisibility(View.GONE);
             System.out.println("2");
         }
-        System.out.println("3");
         notifyDataSetChanged();
     }
 

@@ -26,16 +26,32 @@
             android:textSize="32dp" />
 
 
-        <SearchView
-            android:id="@+id/simpleSearchView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchViewAyuda"
+            android:layout_width="242dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:background="@drawable/borde_inferior"
-            android:iconifiedByDefault="false"
-            android:queryHint="Buscar ayuda"
+            app:iconifiedByDefault="false"
+            app:queryHint="Buscar...">
 
-            />
+        </androidx.appcompat.widget.SearchView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/contenedorAyuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:text="@string/numeroTelefonoAyuda"
+            android:textAlignment="center" />
 
     </LinearLayout>
 

@@ -22,9 +22,6 @@
         <action
             android:id="@+id/action_nav_home_to_descubrimientosFragment"
             app:destination="@id/DescubrimientosFragment" />
-        <action
-            android:id="@+id/action_nav_home_to_favoritosFragment"
-            app:destination="@id/favoritosFragment" />
     </fragment>
     <fragment
         android:id="@+id/perfilFragment"
@@ -55,10 +52,5 @@
         android:name="com.example.rilafragments.fragments.descubrimientos.DescubrimientosFragment"
         android:label="fragment_destinos_recomendados"
         tools:layout="@layout/fragment_descubrimientos" />
-    <fragment
-        android:id="@+id/favoritosFragment"
-        android:name="com.example.rilafragments.fragments.favoritos.FavoritosFragment"
-        android:label="fragment_favoritos"
-        tools:layout="@layout/fragment_favoritos" />
 
 </navigation>

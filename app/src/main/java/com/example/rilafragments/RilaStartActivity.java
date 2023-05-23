@@ -5,8 +5,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -28,6 +30,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 public class RilaStartActivity extends AppCompatActivity {
 
     Button btnSignUp;
@@ -38,7 +42,6 @@ public class RilaStartActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase firebaseDatabase;
     GoogleSignInClient googleSignInClient;
-    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +51,11 @@ public class RilaStartActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        progressDialog = new ProgressDialog(RilaStartActivity.this);
-        progressDialog.setTitle("Creating Account");
-        progressDialog.setMessage("We are creating your account");
-
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
+                .requestEmail().build();
 
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
 
-
-
-        btnSignUp = findViewById(R.id.btnSignUpMain);
         inicializarVistas();
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -80,27 +76,35 @@ public class RilaStartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(RilaStartActivity.this, MainActivity.class));
-
             }
         });
 
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Iniciar sesion con Google
+                //ToDo -> Iniciar sesion con Google
+                signInGoogle();
             }
         });
     }
 
-    private void inicializarVistas() {
+    @Override
+    protected void onStart() {
+        //Inicio de sesion automatico
+        if(auth.getCurrentUser() != null){
+            startActivity(new Intent(RilaStartActivity.this, MainActivity.class));
+        }
+        super.onStart();
+    }
 
+    private void inicializarVistas() {
+        btnSignUp = findViewById(R.id.btnSignUpMain);
         btnLogIn = findViewById(R.id.btnLoginInMain);
         btnGoogle = findViewById(R.id.btnGoogleMain);
         lblEntrarSinCuenta = findViewById(R.id.lblEntrarSinCuentaMain);
     }
 
     int RC_SIGN_IN = 40;
-
     private void signInGoogle(){
         Intent intent = googleSignInClient.getSignInIntent();
         startActivityForResult(intent, RC_SIGN_IN);
@@ -119,8 +123,6 @@ public class RilaStartActivity extends AppCompatActivity {
             } catch (ApiException e) {
                 e.printStackTrace();
             }
-
-
         }
     }
     private void firebaseAuth(String idToken){
@@ -129,7 +131,7 @@ public class RilaStartActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             FirebaseUser user = auth.getCurrentUser();
 
                             Users users = new Users(user.getUid(), user.getDisplayName(), user.getPhotoUrl().toString());
@@ -138,8 +140,10 @@ public class RilaStartActivity extends AppCompatActivity {
 
                             Intent intent = new Intent(RilaStartActivity.this, MainActivity.class);
                             startActivity(intent);
-                        }else
-                            Toast.makeText(RilaStartActivity.this, "Ocurrio un error", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(RilaStartActivity.this, "Ocurrio un error: ", Toast.LENGTH_SHORT).show();
+                            Objects.requireNonNull(task.getException()).printStackTrace();
+                        }
                     }
                 });
     }

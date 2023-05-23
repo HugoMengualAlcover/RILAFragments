@@ -32,7 +32,6 @@ public class LogInActivity extends AppCompatActivity {
 
         authSystem = FirebaseAuth.getInstance();
 
-
         binding.btnEntrarLogInActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

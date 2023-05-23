@@ -85,7 +85,7 @@ public class SignUpActivity extends AppCompatActivity {
                             datosUsuario.put("nombre", name);
                             datosUsuario.put("email", auth.getCurrentUser().getEmail());
 
-                            firebaseDbReference.child("Usuario").push().setValue(datosUsuario);
+                            firebaseDbReference.child("Usuarios").child(auth.getCurrentUser().getEmail().split("\\.")[0]).setValue(datosUsuario);
                             upDateUI(auth.getCurrentUser());
                         }
                         else {

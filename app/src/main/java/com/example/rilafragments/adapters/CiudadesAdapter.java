@@ -59,13 +59,6 @@ public class CiudadesAdapter extends RecyclerView.Adapter<CiudadesAdapter.Ciudad
                 .error(android.R.drawable.stat_notify_error)
                 .into(holder.imageCiudad);
 
-        holder.btnFavoritos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //ToDo Añadir a los favoritos del usuario
-            }
-        });
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,14 +84,12 @@ public class CiudadesAdapter extends RecyclerView.Adapter<CiudadesAdapter.Ciudad
     public class CiudadVH extends RecyclerView.ViewHolder {
         TextView lblTitulo;
         TextView lblInfo;
-        ImageButton btnFavoritos;
         ImageView imageCiudad;
         public CiudadVH(@NonNull View itemView) {
             super(itemView);
 
             lblTitulo = itemView.findViewById(R.id.lblTituloCiudadesPueblosCard);
             lblInfo = itemView.findViewById(R.id.lblInfoCiudadesPueblosCard);
-            btnFavoritos = itemView.findViewById(R.id.btnStarCiudadesPueblosCard);
             imageCiudad = itemView.findViewById(R.id.imgCiudadesPueblosCard);
         }
     }

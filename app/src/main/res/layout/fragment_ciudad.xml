@@ -59,29 +59,6 @@
                     android:layout_marginBottom="10dp" />
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/lblValoracionesDestinoActivity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="10"
-                android:fontFamily="sans-serif-thin"
-                android:text="VALORACIONES"
-                android:textColor="#825D33"
-                android:textSize="32dp" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="50">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/contenedorValoracionesDestinoActivity"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </RelativeLayout>
-
         </LinearLayout>
 
     </ScrollView>
