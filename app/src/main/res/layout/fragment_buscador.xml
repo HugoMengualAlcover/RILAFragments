@@ -13,7 +13,7 @@
         android:layout_width="242dp"
         android:layout_height="50dp"
         android:layout_marginTop="39dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp"
         android:background="@drawable/search_view"
         android:radius="8dp"
         app:iconifiedByDefault="false"
@@ -50,7 +50,7 @@
                     android:id="@+id/labelEuropaBuscadorFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Europa"
+                    android:text="@string/europa"
                     android:textSize="20sp" />
 
                 <View
@@ -76,7 +76,7 @@
                     android:id="@+id/labelAfricaBuscadorFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="África"
+                    android:text="@string/frica"
                     android:textSize="20sp" />
 
                 <View
@@ -101,7 +101,7 @@
                     android:id="@+id/labelAsiaBuscadorFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Asia"
+                    android:text="@string/asia"
                     android:textSize="20sp" />
 
                 <View
@@ -126,7 +126,7 @@
                     android:id="@+id/labelAmericaBuscadorFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="América"
+                    android:text="@string/am_rica"
                     android:textSize="20sp" />
 
                 <View
@@ -152,7 +152,7 @@
                     android:id="@+id/labelOceaniaBuscadorFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Oceania"
+                    android:text="@string/oceania"
                     android:textSize="20sp" />
 
                 <View

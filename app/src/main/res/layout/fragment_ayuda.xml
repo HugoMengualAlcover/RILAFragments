@@ -21,9 +21,9 @@
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/roboto_thin"
             android:gravity="center"
-            android:text="Ayuda"
+            android:text="@string/ayuda"
             android:textColor="@color/PottersClay"
-            android:textSize="32dp" />
+            android:textSize="32sp" />
 
 
         <androidx.appcompat.widget.SearchView

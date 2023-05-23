@@ -19,8 +19,8 @@
             android:layout_marginTop="40dp"
             android:layout_marginRight="20dp"
             android:fontFamily="@font/roboto_light"
-            android:gravity="right"
-            android:text="CIUDADES"
+            android:gravity="end"
+            android:text="@string/ciudades"
             android:textColor="#825D33"
             android:textSize="34sp" />
 

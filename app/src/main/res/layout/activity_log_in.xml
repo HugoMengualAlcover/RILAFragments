@@ -25,7 +25,7 @@
             android:layout_marginTop="40dp"
             android:fontFamily="@font/alegreya_sans_sc_thin"
             android:gravity="center"
-            android:text="Log in"
+            android:text="@string/log_in"
             android:textColor="@color/PottersClay"
             android:textSize="48sp" />
 
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Dirección de e-mail"
+            android:hint="@string/direcci_n_de_e_mail"
             android:padding="10dp"
             app:boxBackgroundMode="outline"
             app:boxStrokeErrorColor="@color/design_default_color_error"
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Contraseña"
+            android:hint="@string/contrase_a"
             android:padding="10dp"
             app:boxBackgroundMode="outline"
             app:boxStrokeErrorColor="@color/design_default_color_error"
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:background="#00FFFFFF"
-            android:text="Olvido su contraseña?"
+            android:text="@string/olvido_su_contrase_a"
             android:textColor="@color/PottersClay"
             android:textSize="12sp" />
 
@@ -91,7 +91,7 @@
             android:paddingTop="15dp"
             android:paddingRight="60dp"
             android:paddingBottom="15dp"
-            android:text="ENTRAR"
+            android:text="@string/entrar"
             android:textColor="@color/PottersClay"
             app:cornerRadius="20dp" />
 

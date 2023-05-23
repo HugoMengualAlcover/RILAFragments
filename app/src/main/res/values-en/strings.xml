@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RILAFragments</string>
+    <string name="descubrimientos">Discoveries</string>
+    <string name="novedades">New</string>
+    <string name="buscador">Searcher</string>
+    <string name="ayuda">Helper</string>
+    <string name="banco_text">Bank</string>
+    <string name="btn_text">Scann Card</string>
+    <string name="numeroTelefonoAyuda">To get in contact with us call the following number: <b>111 222 333</b></string>
+    <string name="DescCambiarContraseña">Enter an email and we will send a message to change your password.</string>
+    <string name="entrar">Enter</string>
+    <string name="cambiar_contrasenya">Change password</string>
+    <string name="direcci_n_de_e_mail">Email adress</string>
+    <string name="contrase_a">Password</string>
+    <string name="olvido_su_contrase_a">Did you forget your password?</string>
+    <string name="pagar">Pay</string>
+    <string name="manual">Manual</string>
+    <string name="escanear">Scann</string>
+    <string name="entrar_sin_cuenta">Enter without an account</string>
+    <string name="nombre">Name</string>
+    <string name="confirmar_contrase_a">Confirm password</string>
+    <string name="registrarse">Register</string>
+    <string name="comprar">Buy</string>
+    <string name="europa">Europe</string>
+    <string name="frica">Africa</string>
+    <string name="asia">Asia</string>
+    <string name="am_rica">America</string>
+    <string name="oceania">Oceania</string>
+    <string name="ciudades">CITIES</string>
+    <string name="una_selecci_n_aleatoria_que_quiza_te_prodr_a_interesar">A random selection that may interest you</string>
+    <string name="correo">Mail</string>
+    <string name="cerrar_sesi_n">Close Sesion</string>
+</resources>

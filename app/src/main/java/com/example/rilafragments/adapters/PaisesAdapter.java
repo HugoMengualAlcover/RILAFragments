@@ -37,7 +37,6 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
     private List<Pais> objectsSearch;
     private Context context;
     private int resource;
-    Group label;
 
 
     private Target loadtarget;
@@ -46,7 +45,6 @@ public class PaisesAdapter extends RecyclerView.Adapter<PaisesAdapter.PaisVH> {
         this.objects = objects;
         this.context = context;
         this.resource = resource;
-        this.label = label;
 
         objectsSearch = new ArrayList<>();
         objectsSearch.addAll(objects);

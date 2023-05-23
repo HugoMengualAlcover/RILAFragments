@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="60dp"
             android:paddingRight="60dp"
-            android:text="Sign Up "
+            android:text="@string/sign_up"
             android:textColor="#000000"
             app:cornerRadius="30dp" />
 
@@ -42,7 +42,7 @@
             android:layout_marginTop="30dp"
             android:paddingLeft="60dp"
             android:paddingRight="60dp"
-            android:text="Log in"
+            android:text="@string/log_in"
             android:textColor="#000000"
             app:cornerRadius="30dp" />
 
@@ -54,7 +54,7 @@
 
             <ImageButton
                 android:id="@+id/btnGoogleMain"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#00FFFFFF"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:text="Entrar sin cuenta" />
+            android:text="@string/entrar_sin_cuenta" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
