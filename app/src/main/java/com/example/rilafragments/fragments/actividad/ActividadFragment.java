@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 import com.example.rilafragments.APIs.ciudades.Actividad;
@@ -72,10 +73,6 @@ public class ActividadFragment extends Fragment {
                 .placeholder(android.R.drawable.ic_popup_sync)
                 .error(android.R.drawable.stat_notify_error)
                 .into(binding.imgActividadFragment);
-
-        byte[] decodedString = Base64.getDecoder().decode(actividad.getImgLocalizacion());
-        Bitmap decodedByte = BitmapFactory. decodeByteArray(decodedString, 0, decodedString.length);
-        binding.imgMapaActividadFragment.setImageBitmap(decodedByte);
 
         if(actividad.getPrecio() == 0){
             binding.btnComprarActividadFragment.setVisibility(View.GONE);
