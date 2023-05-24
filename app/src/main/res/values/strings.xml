@@ -6,6 +6,8 @@
     <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings" translatable="false">Settings</string>
+    <string name="menu_home" translatable="false">Home</string>
+
 
     <string name="descubrimientos">Descubrimientos</string>
     <string name="novedades">Novedades</string>
