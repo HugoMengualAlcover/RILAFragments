@@ -61,6 +61,7 @@ public class PerfilFragment extends Fragment {
 
         auth = FirebaseAuth.getInstance();
         if(auth.getCurrentUser() != null){
+            binding.lblCorreoVariablePerfilActivity.setText(auth.getCurrentUser().getEmail());
             firebaseDbReference.child(auth.getCurrentUser().getEmail().split("\\.")[0]).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
